@@ -1,0 +1,38 @@
+20230414	17:37:25	d1416fb8-3613-40e7-b521-152817f4a270	ReferenceError: password is not defined	GET	/users	undefined
+20230414	17:47:01	824e011e-209d-4fc0-a18e-424c07c5324c	SequelizeValidationError: notNull Violation: users.name cannot be null,
+notNull Violation: users.surname cannot be null,
+notNull Violation: users.email cannot be null	POST	/users	undefined
+20230415	18:35:52	93fdc442-17af-4194-8d2b-fdb581dcad8d	SequelizeValidationError: notNull Violation: users.name cannot be null,
+notNull Violation: users.surname cannot be null,
+notNull Violation: users.email cannot be null	POST	/users	undefined
+20230415	19:05:43	00523cb4-9bf8-457f-a4df-412671a2b964	SequelizeValidationError: notNull Violation: users.name cannot be null,
+notNull Violation: users.surname cannot be null,
+notNull Violation: users.email cannot be null	POST	/users	undefined
+20230416	14:32:34	b998e668-0b88-47e0-bea9-55ba0a9e3e7b	ReferenceError: password is not defined	GET	/users	undefined
+20230426	19:24:59	b10c8256-bc23-4032-bb09-c30f93930a80	SequelizeValidationError: notNull Violation: users.role cannot be null	POST	/users	undefined
+20230426	19:26:32	b3ed258a-ae95-46eb-81bc-ff8067075045	SequelizeValidationError: notNull Violation: users.role cannot be null	POST	/users	undefined
+20230426	19:33:36	c54c9b1a-1bb2-4ea0-af59-173bb697ca08	SequelizeValidationError: notNull Violation: users.role cannot be null	POST	/users	undefined
+20230426	20:11:24	6e0f33e6-c8dd-4ff8-a661-af4a7108b5cc	SequelizeValidationError: notNull Violation: users.role cannot be null	POST	/users	undefined
+20230426	20:15:46	4c8ce2f8-6efd-4c89-ba51-463552dcc991	SequelizeValidationError: notNull Violation: users.role cannot be null	POST	/users	undefined
+20230426	20:34:51	a7ccd1ee-eeac-4c9a-b8f6-2ec3488764af	ReferenceError: role is not defined	POST	/users	undefined
+20230426	20:36:10	00e19ddb-8032-449d-a69d-b9278998651e	ReferenceError: role is not defined	POST	/users	undefined
+20230427	11:43:58	77670677-995d-49e7-ada7-ef4aa1af213e	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	undefined
+20230427	11:47:57	e478d51a-403f-4c97-b16b-f8112828db3b	SyntaxError: Unexpected token } in JSON at position 250	POST	/tickets	undefined
+20230427	11:52:49	bcabfe85-0110-4230-9c58-c84b924f75ae	SequelizeForeignKeyConstraintError: inserción o actualización en la tabla «tickets» viola la llave foránea «tickets_userId_fkey»	POST	/tickets	undefined
+20230427	14:48:18	a086d79a-034b-4104-b5af-c2715a444ec6	SequelizeForeignKeyConstraintError: inserción o actualización en la tabla «tickets» viola la llave foránea «tickets_userId_fkey»	PUT	/tickets	undefined
+20230429	00:42:47	d6608823-68f8-4739-aabb-c95f9a9c2d16	TypeError: Users.findOne is not a function	POST	/auth	undefined
+20230501	07:07:38	6cd804c7-31a4-4533-8359-79a642b334d5	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230501	07:14:33	17af1c97-94f8-43b5-9a27-c75393a539fc	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230501	07:16:56	eb23d591-200c-4a63-8607-19239038c64d	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230501	07:19:17	a93599bc-ac15-43fe-b3ea-117101484b14	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230501	07:20:46	7d60fc61-8b56-4c2e-b5ab-c87bea37641b	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230501	07:50:07	57ce3d90-4cf6-4389-9902-b82de86ede91	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230501	07:52:24	ecfc00e3-4282-4280-9361-4893cd98f1a6	ReferenceError: email is not defined	POST	/auth	http://localhost:3000
+20230502	16:37:43	dfa2b6fc-3948-44e3-b876-95bf6ba51a40	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «users_pkey»	POST	/users	undefined
+20230503	12:57:30	412ed16c-035d-49aa-bbb5-74b763b22a6b	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230503	13:02:30	025f6c25-a145-4d27-9025-8072294a52fc	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230503	13:11:55	210be7c4-7aa7-4475-af7b-1e5e4c8a7a89	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230503	13:12:35	62273bb2-9b1a-4b2a-ad22-638702d73962	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «xzfcbz»	POST	/tickets	http://localhost:3000
+20230503	13:14:32	e7e61787-c275-40ac-9015-426878c9eaec	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «xcvxcv»	POST	/tickets	http://localhost:3000
+20230503	13:19:02	3eb25bfd-3f0e-41e5-8bf8-a30b6c60d503	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230503	13:22:02	207db6e7-b098-47ca-bb08-856cf47c594d	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000

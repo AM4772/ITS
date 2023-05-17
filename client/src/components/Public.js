@@ -14,17 +14,8 @@ const Public = () => {
           A simple, fast and scalable bug tracking system that helps you manage
           bugs easily and deliver great products on time.
         </p>
-        <address className="public__addr">
-          Bugxinator
-          <br />
-          555 Foo Drive
-          <br />
-          Foo City, CA 12345
-          <br />
-          <a href="tel:+15555555555">(555) 555-5555</a>
-        </address>
         <br />
-        <p>Owner: Aldo Moro</p>
+        <p>Built by: Aldo Moro</p>
       </main>
       <footer>
         <Link to="/login">User Login</Link>

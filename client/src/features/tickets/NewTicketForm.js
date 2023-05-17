@@ -7,11 +7,11 @@ import useAuth from "../../hooks/useAuth";
 import { PRIORITIES } from "../../config/priority";
 import { SEVERITIES } from "../../config/severity";
 import { NATURES } from "../../config/nature";
+import { RESOLUTIONS } from "../../config/resolutions";
 
 const NewTicketForm = ({ users }) => {
   const [addNewTicket, { isLoading, isSuccess, isError, error }] =
     useAddNewTicketMutation();
-
   const navigate = useNavigate();
 
   const { username, isAdmin, isManager } = useAuth();
@@ -25,6 +25,7 @@ const NewTicketForm = ({ users }) => {
   const [nature, setNature] = useState("");
   const [author, setAuthor] = useState(username);
   const [status] = useState(false);
+  const [resolution, setResolution] = useState("");
   const [userId, setUserId] = useState(users[0].id);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const NewTicketForm = ({ users }) => {
   const onSeverityChanged = (e) => setSeverity(e.target.value);
   const onNatureChanged = (e) => setNature(e.target.value);
   const onAuthorChanged = (e) => setAuthor(username);
-  // const onStatusChanged = (e) => setStatus(true);
+  const onResolutionChanged = (e) => setResolution(e.target.value);
   const onUserIdChanged = (e) => setUserId(e.target.value);
 
   const canSave = [name, details, userId, author].every(Boolean) && !isLoading;
@@ -68,18 +69,19 @@ const NewTicketForm = ({ users }) => {
         severity,
         nature,
         status,
+        resolution,
       });
     }
   };
 
-  const options = users.map((user) => {
-    return (
+  const options = users.map((user) =>
+    user.role === "Developer" || user.role === "Manager" ? (
       <option key={user.id} value={user.id}>
         {" "}
         {user.username}
       </option>
-    );
-  });
+    ) : null
+  );
 
   const priorityOptions = Object.values(PRIORITIES).map((optpriority) => {
     return (
@@ -104,6 +106,15 @@ const NewTicketForm = ({ users }) => {
       <option key={optnature} value={optnature}>
         {" "}
         {optnature}
+      </option>
+    );
+  });
+
+  const resolutionOptions = RESOLUTIONS.map(({ code, title }) => {
+    return (
+      <option key={code} value={title}>
+        {" "}
+        {title}
       </option>
     );
   });
@@ -180,10 +191,10 @@ const NewTicketForm = ({ users }) => {
         />
 
         <label className="form__label" htmlFor="author">
-          Author:
+          Created by:
         </label>
         <input
-          className="form__input"
+          className="form__input author"
           id="author"
           name="author"
           type="text"
@@ -195,60 +206,83 @@ const NewTicketForm = ({ users }) => {
 
         {(isManager || isAdmin) && (
           <>
-            <label className="form__label" htmlFor="priority">
-              Priority:
-            </label>
-            <select
-              id="priority"
-              name="priority"
-              className="form__select"
-              value={priority}
-              onChange={onPriorityChanged}
-            >
-              {priorityOptions}
-            </select>
-
-            <label className="form__label" htmlFor="severity">
-              Severity:
-            </label>
-            <select
-              id="severity"
-              name="severity"
-              className="form__select"
-              value={severity}
-              onChange={onSeverityChanged}
-            >
-              {severityOptions}
-            </select>
-
-            <label className="form__label" htmlFor="nature">
-              Nature:
-            </label>
-            <select
-              id="nature"
-              name="nature"
-              className="form__select"
-              value={nature}
-              onChange={onNatureChanged}
-            >
-              {natureOptions}
-            </select>
-
-            <label
-              className="form__label form__checkbox-container"
-              htmlFor="assigneduser"
-            >
-              ASSIGNED TO:
-            </label>
-            <select
-              id="assigneduser"
-              name="assigneduser"
-              className="form__select"
-              value={userId}
-              onChange={onUserIdChanged}
-            >
-              {options}
-            </select>
+            <div className="form__row">
+              <div className="form__divider">
+                <label className="form__label" htmlFor="priority">
+                  Priority:
+                </label>
+                <select
+                  id="priority"
+                  name="priority"
+                  className="form__select"
+                  value={priority}
+                  onChange={onPriorityChanged}
+                >
+                  {priorityOptions}
+                </select>
+              </div>
+              <div className="form__divider">
+                <label className="form__label" htmlFor="severity">
+                  Severity:
+                </label>
+                <select
+                  id="severity"
+                  name="severity"
+                  className="form__select"
+                  value={severity}
+                  onChange={onSeverityChanged}
+                >
+                  {severityOptions}
+                </select>
+              </div>
+              <div className="form__divider">
+                <label className="form__label" htmlFor="nature">
+                  Nature:
+                </label>
+                <select
+                  id="nature"
+                  name="nature"
+                  className="form__select"
+                  value={nature}
+                  onChange={onNatureChanged}
+                >
+                  {natureOptions}
+                </select>
+              </div>
+            </div>
+            <div className="form__row">
+              <div className="form__divider">
+                <label className="form__label" htmlFor="resolution">
+                  Resolution Status:
+                </label>
+                <select
+                  id="resolution"
+                  name="resolution"
+                  className="form__select"
+                  value={resolution}
+                  onChange={onResolutionChanged}
+                >
+                  {resolutionOptions}
+                </select>
+              </div>
+              <div className="form__divider">
+                <label
+                  className="form__label form__checkbox-container"
+                  htmlFor="assigneduser"
+                >
+                  Assign Bug to:
+                </label>
+                <select
+                  id="assigneduser"
+                  name="assigneduser"
+                  className="form__select"
+                  value={userId}
+                  onChange={onUserIdChanged}
+                >
+                  {options}
+                </select>
+              </div>
+            </div>
           </>
         )}
       </form>

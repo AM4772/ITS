@@ -44,7 +44,6 @@ const EditUserForm = ({ user }) => {
   }, [email]);
 
   useEffect(() => {
-    console.log(isSuccess);
     if (isSuccess || isDelSuccess) {
       setName("");
       setSurname("");
@@ -225,14 +224,14 @@ const EditUserForm = ({ user }) => {
         </label>
 
         <label className="form__label" htmlFor="role">
-          ASSIGNED ROLE:
+          ASSIGN A ROLE:
         </label>
         <select
           id="role"
           name="role"
           className={`form__select ${validRoleClass}`}
           multiple={false}
-          size="3"
+          size="1"
           value={role}
           onChange={onRoleChanged}
         >

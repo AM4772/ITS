@@ -1,4 +1,5 @@
 export const SEVERITIES = {
+  Select: "Select",
   Critical: "Critical",
   Major: "Major",
   Normal: "Normal",

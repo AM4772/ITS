@@ -10,7 +10,9 @@
 
 :root {
   /* COLORS */
-  --BGCOLOR: #0f172a;
+  --ASSIGNEE: yellow;
+  /* --BGCOLOR: #0f172a; */
+  --BGCOLOR: #0c160d;
   --BORDER-COLOR: #fff;
   --COLOR: #fff;
   --ERROR: firebrick;
@@ -18,11 +20,14 @@
   --LINK-COLOR: whitesmoke;
   --LINK-HOVER: rgba(245, 245, 245, 0.9);
   --NOTE-BGCOLOR: hsla(240, 64%, 27%, 0.65);
+  --LINK-USERCOLOR: blue;
+  --LINK-USERHOVER: hsla(240, 90%, 27%, 0.65);
   --STATUS-COMPLETE: limegreen;
   --STATUS-OPEN: firebrick;
   --TABLE-BGCOLOR: #fff;
   --TABLE-COLOR: #000;
   --INPUT-INVALID: #f00;
+  --SELECT-INVALID: #f00;
 }
 
 /* || UTILITY CLASSES */
@@ -70,10 +75,10 @@ body {
   min-height: 100vh;
   background-color: var(--BGCOLOR);
   color: var(--COLOR);
-  background-image: url("./img/background.jpg");
+  background-image: url("./img/markus-spiske-iar-afB0QQw-unsplash.jpg");
   background-size: cover;
   background-position: top right;
-  background-blend-mode: multiply;
+  background-blend-mode: soft-light;
 }
 
 input,
@@ -110,6 +115,7 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* align-items: center; */
 }
 
 .public {
@@ -117,8 +123,7 @@ a:focus-visible {
   flex-grow: 1;
 }
 
-.public__main,
-.login {
+.public__main {
   flex-grow: 1;
   border-top: 2px solid var(--BORDER-COLOR);
   border-bottom: 2px solid var(--BORDER-COLOR);
@@ -127,6 +132,15 @@ a:focus-visible {
 
 .public__addr {
   margin-top: 1em;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  border-top: 2px solid var(--BORDER-COLOR);
+  border-bottom: 2px solid var(--BORDER-COLOR);
+  padding: 1em 0;
 }
 
 .welcome a::before {
@@ -152,7 +166,8 @@ a:focus-visible {
 }
 
 .dash-header__container--small {
-  max-width: 800px;
+  /* max-width: 800px; */
+  max-width: auto;
 }
 
 .dash-header__nav {
@@ -163,6 +178,8 @@ a:focus-visible {
 }
 
 .dash-container {
+  display: flex;
+  justify-content: center;
   padding: 0.75em 0.5em 0.5em;
   flex-grow: 1;
 }
@@ -196,12 +213,33 @@ tr {
 }
 
 .table {
-  font-size: 1rem;
+  font-size: 0.7rem;
   width: 100%;
+  height: 75%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   color: var(--TABLE-COLOR);
   gap: 0.1em;
+}
+
+.table__userlisting {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: auto;
+  color: var(--TABLE-COLOR);
+  gap: 0.1em;
+  justify-content: center;
+}
+
+.table__userlisting a:any-link {
+  color: var(--LINK-USERCOLOR);
+}
+
+.table__userlisting a:hover {
+  color: var(--LINK-USERHOVER);
 }
 
 .table__button {
@@ -219,7 +257,7 @@ tr {
 .table__th,
 .table__cell {
   background-color: var(--TABLE-BGCOLOR);
-  text-align: left;
+  text-align: center;
   border: 1px solid var(--TABLE-COLOR);
   padding: 0.5em;
 }
@@ -241,6 +279,10 @@ tr {
   display: none;
 }
 
+.ticket__title {
+  font-weight: bold;
+}
+
 .ticket__status {
   font-weight: bold;
 }
@@ -259,7 +301,8 @@ tr {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.75em;
-  max-width: 800px;
+  /* max-width: 800px; */
+  width: 800px;
 }
 
 .form__checkbox-container {
@@ -281,6 +324,10 @@ tr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.form__title-row h3 {
+  color: var(--ASSIGNEE);
 }
 
 .form__input,
@@ -307,6 +354,12 @@ tr {
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.25em;
+  border-radius: 15px;
+}
+
+.form__select--incomplete {
+  border: 1px solid var(--SELECT-INVALID);
+  outline: 1px solid var(--SELECT-INVALID);
 }
 
 .form__action-buttons {
@@ -328,6 +381,10 @@ tr {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5em;
+}
+
+.author {
+  background-color: rgb(144, 164, 184);
 }
 
 @media screen and (max-width: 400px) {
@@ -362,7 +419,7 @@ tr {
   }
 
   .table--tickets {
-    grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
+    grid-template-columns: repeat(3, auto) 2fr repeat(4, 1fr);
   }
 
   .ticket__created,

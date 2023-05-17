@@ -30,6 +30,7 @@ const createNewTicket = asyncHandler(async (req, res) => {
     severity,
     nature,
     status,
+    resolution,
     author,
     userId,
   } = req.body;
@@ -70,7 +71,7 @@ const createNewTicket = asyncHandler(async (req, res) => {
     priority,
     severity,
     nature,
-    status,
+    resolution,
     author,
     userId,
   });
@@ -97,6 +98,7 @@ const updateTicket = asyncHandler(async (req, res) => {
     severity,
     nature,
     status,
+    resolution,
     author,
     userId,
   } = req.body;
@@ -131,6 +133,7 @@ const updateTicket = asyncHandler(async (req, res) => {
   ticket.severity = severity;
   ticket.nature = nature;
   ticket.status = status;
+  ticket.resolution = resolution;
   ticket.userId = userId;
 
   const updatedTicket = ticket;

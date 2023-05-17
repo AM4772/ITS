@@ -6,6 +6,7 @@ import {
   faUserGear,
   faUserPlus,
   faRightFromBracket,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useSendLogoutMutation } from "../features/auth/authApiSlice";
@@ -31,7 +32,8 @@ const DashHeader = () => {
   const onNewTicketClicked = () => navigate("/dash/tickets/new");
   const onNewUserClicked = () => navigate("/dash/users/new");
   const onTicketsClicked = () => navigate("/dash/tickets");
-  const onUsersClicked = () => navigate("/dash/users");
+  const onUsersSettingsClicked = () => navigate("/dash/users");
+  const onUsersClicked = () => navigate("/dash/user");
 
   let dashClass = null;
   if (
@@ -68,12 +70,31 @@ const DashHeader = () => {
     );
   }
 
-  let userButton = null;
+  let userSettingsButton = null;
+  if (isAdmin) {
+    if (!USERS_REGEX.test(pathname) && pathname.includes("/dash")) {
+      userSettingsButton = (
+        <button
+          className="icon-button"
+          title="User Settings"
+          onClick={onUsersSettingsClicked}
+        >
+          <FontAwesomeIcon icon={faUserGear} />
+        </button>
+      );
+    }
+  }
+
+  let usersButton = null;
   if (isManager || isAdmin) {
     if (!USERS_REGEX.test(pathname) && pathname.includes("/dash")) {
-      userButton = (
-        <button className="icon-button" title="Users" onClick={onUsersClicked}>
-          <FontAwesomeIcon icon={faUserGear} />
+      usersButton = (
+        <button
+          className="icon-button"
+          title="User List"
+          onClick={onUsersClicked}
+        >
+          <FontAwesomeIcon icon={faUsers} />
         </button>
       );
     }
@@ -109,7 +130,8 @@ const DashHeader = () => {
         {newTicketButton}
         {newUserButton}
         {ticketsButton}
-        {userButton}
+        {usersButton}
+        {userSettingsButton}
         {logoutButton}
       </>
     );
@@ -122,7 +144,7 @@ const DashHeader = () => {
       <header className="dash-header">
         <div className={`dash-header__container ${dashClass}`}>
           <Link to="/dash">
-            <h1 className="dash-header__title">techBugs</h1>
+            <h1 className="dash-header__title">Bugxinator</h1>
           </Link>
           <nav className="dash-header__nav">{buttonContent}</nav>
         </div>

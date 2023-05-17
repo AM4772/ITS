@@ -161,7 +161,7 @@ const NewUserForm = () => {
         />
 
         <label className="form__label" htmlFor="role">
-          ASSIGNED ROLE:
+          ASSIGN A ROLE:
         </label>
         <select
           id="role"

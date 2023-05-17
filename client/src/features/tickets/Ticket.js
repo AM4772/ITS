@@ -2,27 +2,75 @@ import React, { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { parseISO, formatDistanceToNow, formatDistance } from "date-fns";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
+import { useGetUsersQuery } from "../users/usersApiSlice";
 
-const Ticket = ({ ticketId }) => {
+const Ticket = ({ ticketId, userID }) => {
+  let assignee;
   const { ticket } = useGetTicketsQuery("ticketsList", {
     selectFromResult: ({ data }) => ({
       ticket: data?.entities[ticketId],
     }),
   });
 
+  const {
+    data: users,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetUsersQuery("usersList", {
+    pollingInterval: 15000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+  });
+
   const navigate = useNavigate();
+
+  if (isLoading) assignee = "...Loading";
+
+  if (isError) {
+    assignee = <p className="errmsg">{error?.data?.message}</p>;
+  }
+
+  if (isSuccess) {
+    const { ids, entities } = users;
+
+    let assigneeIds = [...ids];
+
+    assignee = assigneeIds.map((userID) =>
+      entities[userID].id === ticket.userId ? entities[userID].username : null
+    );
+  }
 
   if (ticket) {
     const created = new Date(ticket.createdAt).toLocaleString("en-US", {
       day: "numeric",
       month: "long",
+      year: "numeric",
     });
 
     const updated = new Date(ticket.updatedAt).toLocaleString("en-US", {
       day: "numeric",
       month: "long",
+      year: "numeric",
     });
+
+    let timeAgo = "";
+    if (!ticket.status) {
+      const timePeriod = formatDistanceToNow(parseISO(ticket.createdAt), {
+        includeSeconds: true,
+      });
+      timeAgo = `${timePeriod}`;
+    } else {
+      const timePeriod = formatDistance(
+        parseISO(ticket.createdAt),
+        parseISO(ticket.updatedAt),
+        { includeSeconds: true }
+      );
+      timeAgo = `${timePeriod}`;
+    }
 
     const handleEdit = () => navigate(`/dash/tickets/${ticketId}`);
 
@@ -39,6 +87,8 @@ const Ticket = ({ ticketId }) => {
         <td className="table__cell ticket__updated">{updated}</td>
         <td className="table__cell ticket__title">{ticket.name}</td>
         <td className="table__cell ticket__username">{ticket.author}</td>
+        <td className="table__cell ticket__username">{assignee}</td>
+        <td className="table__cell ticket__updated">{timeAgo}</td>
 
         <td className="table__cell">
           <button className="icon-button table__button" onClick={handleEdit}>

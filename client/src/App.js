@@ -15,6 +15,8 @@ import PersistLogin from "./features/auth/PersistLogin";
 import RequireAuth from "./features/auth/RequireAuth";
 import { ROLES } from "./config/roles";
 import useTitle from "./hooks/useTitle";
+import SingleUserTicketsList from "./features/tickets/SingleUserTicketsList";
+import UsersListing from "./features/users/UsersListing";
 
 function App() {
   useTitle("Bugxinator");
@@ -39,8 +41,16 @@ function App() {
                 >
                   <Route path="users">
                     <Route index element={<UsersList />} />
-                    <Route path=":id" element={<EditUser />} />
+                    <Route
+                      element={<RequireAuth allowedRoles={[ROLES.Admin]} />}
+                    >
+                      <Route path=":id" element={<EditUser />} />
+                    </Route>
                     <Route path="new" element={<NewUserForm />} />
+                  </Route>
+                  <Route path="user">
+                    <Route index element={<UsersListing />} />
+                    <Route path=":id" element={<SingleUserTicketsList />} />
                   </Route>
                 </Route>
 

@@ -7,7 +7,7 @@ const useAuth = () => {
   let isDeveloper = false;
   let isManager = false;
   let isAdmin = false;
-  let status = "Customer";
+  let status = "EndUser";
 
   if (token) {
     const decoded = jwtDecode(token);

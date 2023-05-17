@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       priority: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       severity: {
         type: DataTypes.STRING,
@@ -37,6 +37,9 @@ module.exports = (sequelize) => {
       status: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+      },
+      resolution: {
+        type: DataTypes.STRING,
       },
       author: {
         type: DataTypes.STRING,

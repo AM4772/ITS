@@ -10,10 +10,12 @@ import {
   faTrashCan,
   faWindowRestore,
 } from "@fortawesome/free-solid-svg-icons";
+import { parseISO, formatDistanceToNow, formatDistance } from "date-fns";
 import useAuth from "../../hooks/useAuth";
 import { PRIORITIES } from "../../config/priority";
 import { SEVERITIES } from "../../config/severity";
 import { NATURES } from "../../config/nature";
+import { RESOLUTIONS } from "../../config/resolutions";
 
 const EditTicketForm = ({ ticket, users }) => {
   const { isManager, isAdmin } = useAuth();
@@ -28,6 +30,7 @@ const EditTicketForm = ({ ticket, users }) => {
   const navigate = useNavigate();
 
   const [name, setName] = useState(ticket.name);
+  const [author, setAuthor] = useState(ticket.author);
   const [details, setDetails] = useState(ticket.details);
   const [steps, setSteps] = useState(ticket.steps);
   const [version, setVersion] = useState(ticket.version);
@@ -35,7 +38,8 @@ const EditTicketForm = ({ ticket, users }) => {
   const [severity, setSeverity] = useState(ticket.severity);
   const [nature, setNature] = useState(ticket.nature);
   const [status, setStatus] = useState(ticket.status);
-  const [userId, setUserId] = useState(ticket.user);
+  const [resolution, setResolution] = useState(ticket.resolution);
+  const [userId, setUserId] = useState(ticket.userId);
   const [changed, setChanged] = useState(false);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ const EditTicketForm = ({ ticket, users }) => {
       setSeverity("");
       setNature("");
       setStatus("");
+      setResolution("");
       setUserId("");
       navigate("/dash/tickets");
     }
@@ -86,6 +91,10 @@ const EditTicketForm = ({ ticket, users }) => {
     setChanged(true);
     setStatus((prev) => !prev);
   };
+  const onResolutionChanged = (e) => {
+    setChanged(true);
+    setResolution(e.target.value);
+  };
   const onUserIdChanged = (e) => {
     setChanged(true);
     setUserId(e.target.value);
@@ -103,6 +112,7 @@ const EditTicketForm = ({ ticket, users }) => {
         severity,
         nature,
         status,
+        resolution,
         userId,
       });
     }
@@ -115,6 +125,7 @@ const EditTicketForm = ({ ticket, users }) => {
   const onReloadTicketClicked = () => {
     setChanged(false);
     setName(ticket.name);
+    setAuthor(ticket.author);
     setDetails(ticket.details);
     setSteps(ticket.steps);
     setVersion(ticket.version);
@@ -122,6 +133,7 @@ const EditTicketForm = ({ ticket, users }) => {
     setSeverity(ticket.severity);
     setNature(ticket.nature);
     setStatus(ticket.status);
+    setResolution(ticket.resolution);
     setUserId(ticket.user);
   };
 
@@ -142,14 +154,33 @@ const EditTicketForm = ({ ticket, users }) => {
     second: "numeric",
   });
 
-  const options = users.map((user) => {
-    return (
+  let timeAgo = "";
+  if (!ticket.status) {
+    const timePeriod = formatDistanceToNow(parseISO(ticket.createdAt), {
+      includeSeconds: true,
+    });
+    timeAgo = `${timePeriod}`;
+  } else {
+    const timePeriod = formatDistance(
+      parseISO(ticket.createdAt),
+      parseISO(ticket.updatedAt),
+      { includeSeconds: true }
+    );
+    timeAgo = `${timePeriod}`;
+  }
+
+  const assignee = users.map((user) =>
+    user.id === ticket.userId ? user.username : null
+  );
+
+  const options = users.map((user) =>
+    user.role === "Developer" || user.role === "Manager" ? (
       <option key={user.id} value={user.id}>
         {" "}
         {user.username}
       </option>
-    );
-  });
+    ) : null
+  );
 
   const priorityOptions = Object.values(PRIORITIES).map((optpriority) => {
     return (
@@ -178,9 +209,23 @@ const EditTicketForm = ({ ticket, users }) => {
     );
   });
 
+  const resolutionOptions = RESOLUTIONS.map(({ code, title }) => {
+    return (
+      <option key={code} value={title}>
+        {" "}
+        {title}
+      </option>
+    );
+  });
+
   const errClass = isError || isDelError ? "errmsg" : "offscreen";
   const validNameClass = !name ? "form__input--incomplete" : "";
   const validDetailsClass = !details ? "form__input--incomplete" : "";
+  const validPriorityClass = !priority ? "form__select--incomplete" : "";
+  const validSeverityClass = !severity ? "form__select--incomplete" : "";
+  const validNatureClass = !nature ? "form__select--incomplete" : "";
+  const validResolutionClass = !resolution ? "form__select--incomplete" : "";
+  const validUserIdClass = !userId ? "form__select--incomplete" : "";
 
   const errContent = (error?.data?.message || delerror?.data?.message) ?? "";
 
@@ -215,6 +260,7 @@ const EditTicketForm = ({ ticket, users }) => {
       <form className="form" onSubmit={(e) => e.preventDefault()}>
         <div className="form__title-row">
           <h2>Edit Bug #{ticket.id}</h2>
+          <h3>Assigned to: {assignee}</h3>
           <div className="form__action-buttons">
             <button
               className="icon-button"
@@ -239,6 +285,19 @@ const EditTicketForm = ({ ticket, users }) => {
           autoComplete="off"
           value={name}
           onChange={onNameChanged}
+        />
+
+        <label className="form__label" htmlFor="author">
+          Created by:
+        </label>
+        <input
+          className="form__input author"
+          id="author"
+          name="author"
+          type="text"
+          autoComplete="off"
+          value={author}
+          readOnly
         />
 
         <label className="form__label" htmlFor="ticket-text">
@@ -278,52 +337,89 @@ const EditTicketForm = ({ ticket, users }) => {
 
         {(isManager || isAdmin) && (
           <>
-            <label className="form__label" htmlFor="priority">
-              Priority:
-            </label>
-            <select
-              id="priority"
-              name="priority"
-              className="form__select"
-              value={priority}
-              onChange={onPriorityChanged}
-            >
-              {priorityOptions}
-            </select>
-
-            <label className="form__label" htmlFor="severity">
-              Severity:
-            </label>
-            <select
-              id="severity"
-              name="severity"
-              className="form__select"
-              value={severity}
-              onChange={onSeverityChanged}
-            >
-              {severityOptions}
-            </select>
-
-            <label className="form__label" htmlFor="nature">
-              Nature:
-            </label>
-            <select
-              id="nature"
-              name="nature"
-              className="form__select"
-              value={nature}
-              onChange={onNatureChanged}
-            >
-              {natureOptions}
-            </select>
+            <div className="form__row">
+              <div className="form__divider">
+                <label className="form__label" htmlFor="priority">
+                  Priority:
+                </label>
+                <select
+                  id="priority"
+                  name="priority"
+                  className={`form__select ${validPriorityClass}`}
+                  value={priority}
+                  onChange={onPriorityChanged}
+                >
+                  {priorityOptions}
+                </select>
+              </div>
+              <div className="form__divider">
+                <label className="form__label" htmlFor="severity">
+                  Severity:
+                </label>
+                <select
+                  id="severity"
+                  name="severity"
+                  className={`form__select ${validSeverityClass}`}
+                  value={severity}
+                  onChange={onSeverityChanged}
+                >
+                  {severityOptions}
+                </select>
+              </div>
+              <div className="form__divider">
+                <label className="form__label" htmlFor="nature">
+                  Nature:
+                </label>
+                <select
+                  id="nature"
+                  name="nature"
+                  className={`form__select ${validNatureClass}`}
+                  value={nature}
+                  onChange={onNatureChanged}
+                >
+                  {natureOptions}
+                </select>
+              </div>
+            </div>
 
             <div className="form__row">
+              <div className="form__divider">
+                <label className="form__label" htmlFor="resolution">
+                  Resolution Status:
+                </label>
+                <select
+                  id="resolution"
+                  name="resolution"
+                  className={`form__select ${validResolutionClass}`}
+                  value={resolution}
+                  onChange={onResolutionChanged}
+                >
+                  {resolutionOptions}
+                </select>
+              </div>
+              <div className="form__divider">
+                <label
+                  className="form__label form__checkbox-container"
+                  htmlFor="ticket-username"
+                >
+                  Assign Bug to:
+                </label>
+                <select
+                  id="ticket-username"
+                  name="username"
+                  className={`form__select ${validUserIdClass}`}
+                  value={userId}
+                  onChange={onUserIdChanged}
+                >
+                  {options}
+                </select>
+              </div>
               <div className="form__divider">
                 <label
                   className="form__label form__checkbox-container"
                   htmlFor="ticket-status"
                 >
-                  WORK COMPLETE:
+                  Work Complete?:
                   <input
                     className="form__checkbox"
                     id="ticket-status"
@@ -333,33 +429,28 @@ const EditTicketForm = ({ ticket, users }) => {
                     onChange={onStatusChanged}
                   />
                 </label>
-
-                <label
-                  className="form__label form__checkbox-container"
-                  htmlFor="ticket-username"
-                >
-                  ASSIGNED TO:
-                </label>
-                <select
-                  id="ticket-username"
-                  name="username"
-                  className="form__select"
-                  value={userId}
-                  onChange={onUserIdChanged}
-                >
-                  {options}
-                </select>
               </div>
+            </div>
+            <div className="form__row">
               <div className="form__divider">
                 <p className="form__created">
                   Created:
                   <br />
                   {created}
                 </p>
+              </div>
+              <div className="form__divider">
                 <p className="form__updated">
                   Updated:
                   <br />
                   {updated}
+                </p>
+              </div>
+              <div className="form__divider">
+                <p className="form__updated">
+                  Time Open:
+                  <br />
+                  {timeAgo}
                 </p>
               </div>
             </div>

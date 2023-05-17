@@ -36,3 +36,22 @@ notNull Violation: users.email cannot be null	POST	/users	undefined
 20230503	13:14:32	e7e61787-c275-40ac-9015-426878c9eaec	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «xcvxcv»	POST	/tickets	http://localhost:3000
 20230503	13:19:02	3eb25bfd-3f0e-41e5-8bf8-a30b6c60d503	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
 20230503	13:22:02	207db6e7-b098-47ca-bb08-856cf47c594d	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230510	19:01:45	2311c40e-3798-48f9-8ed2-9405c844a4a5	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	19:02:48	0463efbc-8d36-49af-aebd-bbc64795d235	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	19:04:47	85ff8191-c1ca-47a2-90ce-dc187e8da9ec	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Medium Priority»	POST	/tickets	http://localhost:3000
+20230510	19:08:18	54598e61-e8ca-4e28-9057-abbac781c703	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	19:15:02	5d462974-9c2c-4174-87d5-41b126d8dd95	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	POST	/tickets	http://localhost:3000
+20230510	19:20:22	a1aed21c-5c7f-4b6a-992a-ff4016de3822	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	19:24:41	f62d4a51-ef26-40ae-a5b0-38f1dc536275	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	19:36:12	e8128322-5c53-4d9c-a22a-de4cea1c5cf4	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	19:41:35	28695943-fb53-4646-aedb-df5a3d996eec	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	22:15:23	8167aee0-4fca-4369-93d7-74be4d56829e	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230510	22:15:53	ed717644-e55d-40b4-bac4-8a7248f384db	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230510	22:16:38	e842c025-b967-47cb-ac7d-3929165fbee8	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230510	22:19:18	857f3c0c-0c0d-4bdd-a4b8-9370ee288b58	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230510	22:24:03	c13b4a01-ed80-4792-b41b-58325576bfae	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230510	22:31:55	afa455d3-16cf-432f-9cc0-6c18b7537a11	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	PUT	/tickets	http://localhost:3000
+20230510	22:37:54	2af34c30-405c-468e-866a-8bbcbd403862	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	POST	/tickets	http://localhost:3000
+20230510	22:45:07	014a953c-2e7f-407d-a28e-51c508ce928f	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	POST	/tickets	http://localhost:3000
+20230510	22:46:02	342ef9a4-a308-4e02-b0fd-7c79f9b38aca	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	POST	/tickets	http://localhost:3000
+20230510	22:52:02	450c24a8-5a8b-412f-b767-e6c76e66bcd0	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «High Priority»	POST	/tickets	http://localhost:3000

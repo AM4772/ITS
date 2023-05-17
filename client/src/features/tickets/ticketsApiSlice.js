@@ -32,29 +32,6 @@ export const ticketsApiSlice = apiSlice.injectEndpoints({
         } else return [{ type: "Ticket", id: "LIST" }];
       },
     }),
-    getResolutions: builder.query({
-      query: () => ({
-        url: "/tickets/resolutions",
-        validateStatus: (response, result) => {
-          return response.status === 200 && !result.isError;
-        },
-      }),
-      /* keepUnusedDataFor: 5,*/
-      transformResponse: (responseData) => {
-        const loadedResolutions = responseData.map((resol) => {
-          return resol;
-        });
-        return ticketsAdapter.setAll(initialState, loadedResolutions);
-      },
-      providesTags: (result, error, arg) => {
-        if (result?.ids) {
-          return [
-            { type: "Ticket", id: "LIST" },
-            ...result.ids.map((id) => ({ type: "Ticket", id })),
-          ];
-        } else return [{ type: "Ticket", id: "LIST" }];
-      },
-    }),
     addNewTicket: builder.mutation({
       query: (initialTicket) => ({
         url: "/tickets",
@@ -88,7 +65,6 @@ export const ticketsApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetTicketsQuery,
-  useGetResolutionsQuery,
   useAddNewTicketMutation,
   useUpdateTicketMutation,
   useDeleteTicketMutation,
@@ -112,4 +88,9 @@ export const {
   // Pass in a selector that returns the tickets slice of state
 } = ticketsAdapter.getSelectors(
   (state) => selectTicketsData(state) ?? initialState
+);
+
+export const selectTicketsByUser = createSelector(
+  [selectAllTickets, (state, userId) => userId],
+  (tickets, userId) => tickets.filter((ticket) => ticket.userId === userId)
 );

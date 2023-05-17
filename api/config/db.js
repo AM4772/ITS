@@ -66,7 +66,7 @@ db.models = Object.fromEntries(capsEntries);
 // ------------------------------------------------------------------------------------------------
 // In the object db.models all, models are imported as properties
 // therefore, apply destructuring to create the associations
-const { Users, Tickets, Resolutions, Ticket_Resolutions } = db.models;
+const { Users, Tickets } = db.models;
 
 // Table associations
 // 1-to-1
@@ -76,12 +76,6 @@ Users.hasMany(Tickets, { foreignKey: "userId" });
 Tickets.belongsTo(Users);
 
 // Super Many-to-Many
-Tickets.belongsToMany(Resolutions, { through: Ticket_Resolutions });
-Resolutions.belongsToMany(Tickets, { through: Ticket_Resolutions });
-Tickets.hasMany(Ticket_Resolutions);
-Ticket_Resolutions.belongsTo(Tickets);
-Resolutions.hasMany(Ticket_Resolutions);
-Ticket_Resolutions.belongsTo(Resolutions);
 
 module.exports = {
   ...db.models, // this is to allow importing them where needed: const { Product, User } = require('./db.js');

@@ -97,7 +97,7 @@ const updateUser = asyncHandler(async (req, res) => {
   });
 
   // Allow updates to the original user
-  if (duplicate && duplicate?.id.toString() !== id) {
+  if (duplicate && duplicate?.id !== id) {
     return res.status(409).json({ message: "Duplicate username" });
   }
 

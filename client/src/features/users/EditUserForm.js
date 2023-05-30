@@ -63,7 +63,7 @@ const EditUserForm = ({ user }) => {
   const onRoleChanged = (e) => setRole(e.target.value);
   const onActiveChanged = () => setActive((prev) => !prev);
 
-  const onSaveUserClicked = async (e) => {
+  const onSaveUserClicked = async () => {
     if (password) {
       await updateUser({
         id: user.id,
@@ -89,7 +89,13 @@ const EditUserForm = ({ user }) => {
   };
 
   const onDeleteUserClicked = async () => {
-    await deleteUser({ id: user.id });
+    if (user.role !== "Admin") {
+      await deleteUser({ id: user.id });
+    } else {
+      console.log(
+        "For practical purposes, Admin users cannot be deleted from the db at this time"
+      );
+    }
   };
 
   const options = Object.values(ROLES).map((role) => {

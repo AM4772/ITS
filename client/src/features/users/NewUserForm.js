@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { ROLES } from "../../config/roles";
 import useTitle from "../../hooks/useTitle";
+import useAuth from "../../hooks/useAuth";
 
 const USER_REGEX = /^[A-z]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
@@ -12,6 +13,8 @@ const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const NewUserForm = () => {
   useTitle("techBugs: New User");
+
+  const { status: loggedInUserRole } = useAuth();
 
   const [addNewUser, { isLoading, isSuccess, isError, error }] =
     useAddNewUserMutation();
@@ -70,14 +73,27 @@ const NewUserForm = () => {
     }
   };
 
-  const options = Object.values(ROLES).map((role) => {
-    return (
-      <option key={role} value={role}>
-        {" "}
-        {role}
-      </option>
+  let options;
+  if (loggedInUserRole === "Manager") {
+    options = Object.values(ROLES).map((role) =>
+      role !== "Admin" ? (
+        <option key={role} value={role}>
+          {" "}
+          {role}
+        </option>
+      ) : null
     );
-  });
+  }
+  if (loggedInUserRole === "Admin") {
+    options = Object.values(ROLES).map((role) => {
+      return (
+        <option key={role} value={role}>
+          {" "}
+          {role}
+        </option>
+      );
+    });
+  }
 
   const errClass = isError ? "errmsg" : "offscreen";
   const validUserClass = !validUsername ? "form__input--incomplete" : "";
@@ -87,9 +103,8 @@ const NewUserForm = () => {
 
   const content = (
     <>
-      <p className={errClass}>{error?.data?.message}</p>
-
       <form className="form" onSubmit={onSaveUserClicked}>
+        <p className={errClass}>{error?.data?.message}</p>
         <div className="form__title-row">
           <h2>New User</h2>
           <div className="form__action-buttons">

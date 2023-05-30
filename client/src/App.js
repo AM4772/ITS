@@ -17,6 +17,8 @@ import { ROLES } from "./config/roles";
 import useTitle from "./hooks/useTitle";
 import SingleUserTicketsList from "./features/tickets/SingleUserTicketsList";
 import UsersListing from "./features/users/UsersListing";
+import AppsList from "./features/tickets/AppsList";
+import SingleAppTicketsList from "./features/tickets/SingleAppTicketsList";
 
 function App() {
   useTitle("Bugxinator");
@@ -58,6 +60,10 @@ function App() {
                   <Route index element={<TicketsList />} />
                   <Route path=":id" element={<EditTicket />} />
                   <Route path="new" element={<NewTicket />} />
+                </Route>
+                <Route path="apps">
+                  <Route index element={<AppsList />} />
+                  <Route path="list" element={<SingleAppTicketsList />} />
                 </Route>
               </Route>
               {/* End DashLayout */}

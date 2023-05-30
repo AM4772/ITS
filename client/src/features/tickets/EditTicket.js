@@ -29,7 +29,7 @@ const EditTicket = () => {
   if (!ticket || !users?.length) return <PulseLoader color={"#FFF"} />;
 
   if (!isManager && !isAdmin) {
-    if (ticket.username !== username) {
+    if (ticket.author !== username) {
       return <p className="errmsg">No access</p>;
     }
   }

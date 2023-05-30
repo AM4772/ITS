@@ -16,6 +16,7 @@ import { PRIORITIES } from "../../config/priority";
 import { SEVERITIES } from "../../config/severity";
 import { NATURES } from "../../config/nature";
 import { RESOLUTIONS } from "../../config/resolutions";
+import { APPLICATIONS } from "../../config/applications";
 
 const EditTicketForm = ({ ticket, users }) => {
   const { isManager, isAdmin } = useAuth();
@@ -30,6 +31,7 @@ const EditTicketForm = ({ ticket, users }) => {
   const navigate = useNavigate();
 
   const [name, setName] = useState(ticket.name);
+  const [application, setApplication] = useState(ticket.application);
   const [author, setAuthor] = useState(ticket.author);
   const [details, setDetails] = useState(ticket.details);
   const [steps, setSteps] = useState(ticket.steps);
@@ -45,6 +47,7 @@ const EditTicketForm = ({ ticket, users }) => {
   useEffect(() => {
     if (isSuccess || isDelSuccess) {
       setName("");
+      setApplication("");
       setDetails("");
       setSteps("");
       setVersion("");
@@ -58,10 +61,13 @@ const EditTicketForm = ({ ticket, users }) => {
     }
   }, [isSuccess, isDelSuccess, navigate]);
 
-  // const onNameChanged = (e) => setName(e.target.value);
   const onNameChanged = (e) => {
     setChanged(true);
     setName(e.target.value);
+  };
+  const onApplicationChanged = (e) => {
+    setChanged(true);
+    setApplication(e.target.value);
   };
   const onDetailsChanged = (e) => {
     setChanged(true);
@@ -105,6 +111,7 @@ const EditTicketForm = ({ ticket, users }) => {
       await updateTicket({
         id: ticket.id,
         name,
+        application,
         details,
         steps,
         version,
@@ -125,6 +132,7 @@ const EditTicketForm = ({ ticket, users }) => {
   const onReloadTicketClicked = () => {
     setChanged(false);
     setName(ticket.name);
+    setApplication(ticket.application);
     setAuthor(ticket.author);
     setDetails(ticket.details);
     setSteps(ticket.steps);
@@ -182,20 +190,29 @@ const EditTicketForm = ({ ticket, users }) => {
     ) : null
   );
 
-  const priorityOptions = Object.values(PRIORITIES).map((optpriority) => {
+  const appOptions = Object.values(APPLICATIONS).map((optapp) => {
     return (
-      <option key={optpriority} value={optpriority}>
+      <option key={optapp} value={optapp}>
         {" "}
-        {optpriority}
+        {optapp}
       </option>
     );
   });
 
-  const severityOptions = Object.values(SEVERITIES).map((optseverity) => {
+  const priorityOptions = Object.entries(PRIORITIES).map(([k, v]) => {
     return (
-      <option key={optseverity} value={optseverity}>
+      <option key={v} value={v}>
         {" "}
-        {optseverity}
+        {k}
+      </option>
+    );
+  });
+
+  const severityOptions = Object.entries(SEVERITIES).map(([k, v]) => {
+    return (
+      <option key={v} value={v}>
+        {" "}
+        {k}
       </option>
     );
   });
@@ -220,6 +237,7 @@ const EditTicketForm = ({ ticket, users }) => {
 
   const errClass = isError || isDelError ? "errmsg" : "offscreen";
   const validNameClass = !name ? "form__input--incomplete" : "";
+  const validApplicationClass = !application ? "form__input--incomplete" : "";
   const validDetailsClass = !details ? "form__input--incomplete" : "";
   const validPriorityClass = !priority ? "form__select--incomplete" : "";
   const validSeverityClass = !severity ? "form__select--incomplete" : "";
@@ -255,12 +273,12 @@ const EditTicketForm = ({ ticket, users }) => {
 
   const content = (
     <>
-      <p className={errClass}>{errContent}</p>
-
       <form className="form" onSubmit={(e) => e.preventDefault()}>
+        <p className={errClass}>{errContent}</p>
+        <h3>Bug assigned to: {assignee}</h3>
         <div className="form__title-row">
           <h2>Edit Bug #{ticket.id}</h2>
-          <h3>Assigned to: {assignee}</h3>
+
           <div className="form__action-buttons">
             <button
               className="icon-button"
@@ -286,6 +304,19 @@ const EditTicketForm = ({ ticket, users }) => {
           value={name}
           onChange={onNameChanged}
         />
+
+        <label className="form__label" htmlFor="application">
+          App Name:
+        </label>
+        <select
+          id="application"
+          name="application"
+          className={`form__select ${validApplicationClass}`}
+          value={application}
+          onChange={onApplicationChanged}
+        >
+          {appOptions}
+        </select>
 
         <label className="form__label" htmlFor="author">
           Created by:

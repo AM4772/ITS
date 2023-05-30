@@ -55,3 +55,14 @@ notNull Violation: users.email cannot be null	POST	/users	undefined
 20230510	22:45:07	014a953c-2e7f-407d-a28e-51c508ce928f	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	POST	/tickets	http://localhost:3000
 20230510	22:46:02	342ef9a4-a308-4e02-b0fd-7c79f9b38aca	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «Low Priority»	POST	/tickets	http://localhost:3000
 20230510	22:52:02	450c24a8-5a8b-412f-b767-e6c76e66bcd0	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «High Priority»	POST	/tickets	http://localhost:3000
+20230522	13:57:41	e773469e-53b9-48ba-b0a4-5d63ac33928f	SequelizeValidationError: notNull Violation: tickets.application cannot be null	POST	/tickets	http://localhost:3000
+20230522	14:19:27	aa1e82b3-cc60-4b1e-a308-7bb20b2d5403	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:20:09	673cfc4c-74aa-41a2-8c64-cc73d540a046	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:27:20	6ceba0d0-ace0-417a-946a-0515f73e94ca	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:34:25	d145b28e-28e9-4926-b62b-bf674476149e	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:39:18	8468ad5b-7b71-4f37-a352-d1d1161dc116	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:45:31	3a55f5e7-3c98-4e4a-9106-d012bb1f2765	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:48:53	c1425330-3237-4695-ab6b-ebb2ede68c5a	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:51:59	747d6a83-1f62-4223-b347-af57dbd64c3c	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:52:52	3a9364fd-b58c-4ded-810c-2f9e5abe5688	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230522	14:55:25	f99ee28e-6e2d-438a-8e72-ed5dd8715fb1	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000

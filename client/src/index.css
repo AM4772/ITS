@@ -13,9 +13,10 @@
   --ASSIGNEE: yellow;
   /* --BGCOLOR: #0f172a; */
   --BGCOLOR: #0c160d;
+  --ERRORBGCOLOR: firebrick;
   --BORDER-COLOR: #fff;
   --COLOR: #fff;
-  --ERROR: firebrick;
+  --ERROR: #fff;
   --INACTIVE: lightgray;
   --LINK-COLOR: whitesmoke;
   --LINK-HOVER: rgba(245, 245, 245, 0.9);
@@ -28,15 +29,18 @@
   --TABLE-COLOR: #000;
   --INPUT-INVALID: #f00;
   --SELECT-INVALID: #f00;
+  --ICON-BUTTON-COMPLETED-BGCOLOR: firebrick;
 }
 
 /* || UTILITY CLASSES */
 .errmsg {
   display: inline-block;
-  background-color: var(--TABLE-BGCOLOR);
+  background-color: var(--ERRORBGCOLOR);
   color: var(--ERROR);
   padding: 0.25em;
   margin-bottom: 0.5em;
+  height: max-content;
+  text-align: center;
 }
 
 .errmsg a:any-link {
@@ -217,12 +221,53 @@ tr {
   width: 100%;
   height: 75%;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
   color: var(--TABLE-COLOR);
   gap: 0.1em;
+  justify-content: center;
 }
 
 .table__userlisting {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: auto 200px auto;
+  color: var(--TABLE-COLOR);
+  gap: 0.1em;
+  justify-content: center;
+}
+
+.table__userlisting a:any-link {
+  color: var(--LINK-USERCOLOR);
+}
+
+.table__userlisting a:hover {
+  color: var(--LINK-USERHOVER);
+}
+
+.table__userbugs {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: 250px auto auto;
+  color: var(--TABLE-COLOR);
+  gap: 0.1em;
+  justify-content: center;
+}
+
+.table__userbugs a:any-link {
+  color: var(--LINK-USERCOLOR);
+}
+
+.table__userbugs a:hover {
+  color: var(--LINK-USERHOVER);
+}
+
+.table__applist {
   font-size: 1.5rem;
   font-weight: bolder;
   width: 100%;
@@ -234,11 +279,31 @@ tr {
   justify-content: center;
 }
 
-.table__userlisting a:any-link {
+.table__applist a:any-link {
   color: var(--LINK-USERCOLOR);
 }
 
-.table__userlisting a:hover {
+.table__applist a:hover {
+  color: var(--LINK-USERHOVER);
+}
+
+.table__appbuglist {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: auto 250px auto;
+  color: var(--TABLE-COLOR);
+  gap: 0.1em;
+  justify-content: center;
+}
+
+.table__appbuglist a:any-link {
+  color: var(--LINK-USERCOLOR);
+}
+
+.table__appbuglist a:hover {
   color: var(--LINK-USERHOVER);
 }
 
@@ -263,19 +328,33 @@ tr {
 }
 
 .table__cell:last-child {
-  display: grid;
+  /* display: grid; */
   place-content: center;
 }
 
 .table__cell--inactive {
   background-color: var(--INACTIVE);
+  color: firebrick;
+}
+
+/* ||  USERS */
+
+.user__fullname,
+.user__email,
+.user__roles {
+  display: none;
 }
 
 /* ||  TICKET */
 
+.ticket__nature,
 .ticket__created,
 .ticket__updated,
-.ticket__username {
+.ticket__username,
+.ticket__author,
+.ticket__assignee,
+.ticket__priority,
+.ticket__severity {
   display: none;
 }
 
@@ -326,7 +405,7 @@ tr {
   align-items: center;
 }
 
-.form__title-row h3 {
+.form h3 {
   color: var(--ASSIGNEE);
 }
 
@@ -387,7 +466,7 @@ tr {
   background-color: rgb(144, 164, 184);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
@@ -396,8 +475,45 @@ tr {
     gap: 0;
   }
 
+  .dash-header__title {
+    font-size: 1.5rem;
+  }
+
   .icon-button {
     font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .table__userlisting {
+    font-size: 0.85rem;
+    grid-template-columns: auto auto auto;
+  }
+
+  .table__applist {
+    font-size: 0.85rem;
+  }
+
+  .table__userbugs {
+    font-size: 0.85rem;
+  }
+
+  .form {
+    width: 300px;
+  }
+
+  .form__row {
+    flex-flow: row wrap;
+  }
+
+  .form__divider {
+    flex-flow: column wrap;
+  }
+
+  .form h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -419,12 +535,35 @@ tr {
   }
 
   .table--tickets {
-    grid-template-columns: repeat(3, auto) 2fr repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr) 2fr repeat(4, auto);
   }
 
   .ticket__created,
   .ticket__updated,
-  .ticket__username {
+  .ticket__username,
+  .ticket__author,
+  .ticket__assignee,
+  .ticket__priority,
+  .ticket__severity,
+  .ticket__nature {
+    display: block;
+  }
+
+  .table__userbugs {
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+
+  .table__appbuglist {
+    grid-template-columns: auto auto auto auto auto auto auto;
+  }
+
+  .table--users {
+    /* grid-template-columns: repeat(2, auto) 1fr repeat(2, 1fr); */
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+  .user__fullname,
+  .user__email,
+  .user__roles {
     display: block;
   }
 

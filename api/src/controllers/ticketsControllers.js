@@ -23,6 +23,7 @@ const getAllTickets = asyncHandler(async (req, res) => {
 const createNewTicket = asyncHandler(async (req, res) => {
   const {
     name,
+    application,
     details,
     steps,
     version,
@@ -49,22 +50,10 @@ const createNewTicket = asyncHandler(async (req, res) => {
     return res.status(409).json({ message: "Duplicate ticket" });
   }
 
-  // const userObject = {
-  //   name,
-  //   details,
-  //   steps,
-  //   version,
-  //   priority,
-  //   severity,
-  //   nature,
-  //   status,
-  //   author,
-  //   userId,
-  // };
-
   // Create and store new ticket
   const ticket = await Tickets.create({
     name,
+    application,
     details,
     steps,
     version,
@@ -91,6 +80,7 @@ const updateTicket = asyncHandler(async (req, res) => {
   const {
     id,
     name,
+    application,
     details,
     steps,
     version,
@@ -99,12 +89,13 @@ const updateTicket = asyncHandler(async (req, res) => {
     nature,
     status,
     resolution,
-    author,
     userId,
   } = req.body;
+  console.log(name);
+  console.log(application);
 
   // Confirm data
-  if (!name || !details || !steps || !version) {
+  if (!name || !application || !details || !steps || !version) {
     return res.status(400).json({ message: "All fields with * are required" });
   }
 
@@ -126,6 +117,7 @@ const updateTicket = asyncHandler(async (req, res) => {
   }
 
   ticket.name = name;
+  ticket.application = application;
   ticket.details = details;
   ticket.steps = steps;
   ticket.version = version;

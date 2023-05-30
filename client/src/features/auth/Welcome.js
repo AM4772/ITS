@@ -23,6 +23,10 @@ const Welcome = () => {
       </p>
 
       <p>
+        <Link to="/dash/apps">View Bugs by Application</Link>
+      </p>
+
+      <p>
         <Link to="/dash/tickets/new">Add New Bug</Link>
       </p>
 
@@ -33,9 +37,14 @@ const Welcome = () => {
       )}
 
       {(isManager || isAdmin) && (
-        <p>
-          <Link to="/dash/users/new">Add New User</Link>
-        </p>
+        <>
+          <p>
+            <Link to="/dash/user">User List</Link>
+          </p>
+          <p>
+            <Link to="/dash/users/new">Add New User</Link>
+          </p>
+        </>
       )}
     </section>
   );

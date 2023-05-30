@@ -8,6 +8,7 @@ import { PRIORITIES } from "../../config/priority";
 import { SEVERITIES } from "../../config/severity";
 import { NATURES } from "../../config/nature";
 import { RESOLUTIONS } from "../../config/resolutions";
+import { APPLICATIONS } from "../../config/applications";
 
 const NewTicketForm = ({ users }) => {
   const [addNewTicket, { isLoading, isSuccess, isError, error }] =
@@ -17,6 +18,7 @@ const NewTicketForm = ({ users }) => {
   const { username, isAdmin, isManager } = useAuth();
 
   const [name, setName] = useState("");
+  const [application, setApplication] = useState("");
   const [details, setDetails] = useState("");
   const [steps, setSteps] = useState("");
   const [version, setVersion] = useState("");
@@ -31,6 +33,7 @@ const NewTicketForm = ({ users }) => {
   useEffect(() => {
     if (isSuccess) {
       setName("");
+      setApplication("");
       setDetails("");
       setSteps("");
       setVersion("");
@@ -43,6 +46,7 @@ const NewTicketForm = ({ users }) => {
   }, [isSuccess, navigate]);
 
   const onNameChanged = (e) => setName(e.target.value);
+  const onApplicationChanged = (e) => setApplication(e.target.value);
   const onDetailsChanged = (e) => setDetails(e.target.value);
   const onStepsChanged = (e) => setSteps(e.target.value);
   const onVersionChanged = (e) => setVersion(e.target.value);
@@ -53,7 +57,8 @@ const NewTicketForm = ({ users }) => {
   const onResolutionChanged = (e) => setResolution(e.target.value);
   const onUserIdChanged = (e) => setUserId(e.target.value);
 
-  const canSave = [name, details, userId, author].every(Boolean) && !isLoading;
+  const canSave =
+    [name, application, details, userId, author].every(Boolean) && !isLoading;
 
   const onSaveTicketClicked = async (e) => {
     e.preventDefault();
@@ -61,6 +66,7 @@ const NewTicketForm = ({ users }) => {
       await addNewTicket({
         userId: userId,
         name,
+        application,
         details,
         author,
         steps,
@@ -83,20 +89,29 @@ const NewTicketForm = ({ users }) => {
     ) : null
   );
 
-  const priorityOptions = Object.values(PRIORITIES).map((optpriority) => {
+  const appOptions = Object.values(APPLICATIONS).map((optapp) => {
     return (
-      <option key={optpriority} value={optpriority}>
+      <option key={optapp} value={optapp}>
         {" "}
-        {optpriority}
+        {optapp}
       </option>
     );
   });
 
-  const severityOptions = Object.values(SEVERITIES).map((optseverity) => {
+  const priorityOptions = Object.entries(PRIORITIES).map(([k, v]) => {
     return (
-      <option key={optseverity} value={optseverity}>
+      <option key={v} value={v}>
         {" "}
-        {optseverity}
+        {k}
+      </option>
+    );
+  });
+
+  const severityOptions = Object.entries(SEVERITIES).map(([k, v]) => {
+    return (
+      <option key={v} value={v}>
+        {" "}
+        {k}
       </option>
     );
   });
@@ -121,15 +136,15 @@ const NewTicketForm = ({ users }) => {
 
   const errClass = isError ? "errmsg" : "offscreen";
   const validNameClass = !name ? "form__input--incomplete" : "";
+  const validApplicationClass = !application ? "form__input--incomplete" : "";
   const validDetailsClass = !details ? "form__input--incomplete" : "";
   const validStepsClass = !steps ? "form__input--incomplete" : "";
   const validVersionClass = !version ? "form__input--incomplete" : "";
 
   const content = (
     <>
-      <p className={errClass}>{error?.data?.message}</p>
-
       <form className="form" onSubmit={onSaveTicketClicked}>
+        <p className={errClass}>{error?.data?.message}</p>
         <div className="form__title-row">
           <h2>New Bug</h2>
           <div className="form__action-buttons">
@@ -151,6 +166,19 @@ const NewTicketForm = ({ users }) => {
           required
           onChange={onNameChanged}
         />
+
+        <label className="form__label" htmlFor="app">
+          App Name:
+        </label>
+        <select
+          id="app"
+          name="app"
+          className={`form__select ${validApplicationClass}`}
+          value={application}
+          onChange={onApplicationChanged}
+        >
+          {appOptions}
+        </select>
 
         <label className="form__label" htmlFor="details">
           Details:

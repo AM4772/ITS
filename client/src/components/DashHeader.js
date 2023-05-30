@@ -7,6 +7,7 @@ import {
   faUserPlus,
   faRightFromBracket,
   faUsers,
+  faShapes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useSendLogoutMutation } from "../features/auth/authApiSlice";
@@ -34,6 +35,7 @@ const DashHeader = () => {
   const onTicketsClicked = () => navigate("/dash/tickets");
   const onUsersSettingsClicked = () => navigate("/dash/users");
   const onUsersClicked = () => navigate("/dash/user");
+  const onAppsClicked = () => navigate("/dash/apps");
 
   let dashClass = null;
   if (
@@ -113,6 +115,15 @@ const DashHeader = () => {
     );
   }
 
+  let appsButton = null;
+  if (!TICKETS_REGEX.test(pathname) && pathname.includes("/dash")) {
+    appsButton = (
+      <button className="icon-button" title="Apps" onClick={onAppsClicked}>
+        <FontAwesomeIcon icon={faShapes} />
+      </button>
+    );
+  }
+
   const logoutButton = (
     <button className="icon-button" title="Logout" onClick={sendLogout}>
       <FontAwesomeIcon icon={faRightFromBracket} />
@@ -127,6 +138,7 @@ const DashHeader = () => {
   } else {
     buttonContent = (
       <>
+        {appsButton}
         {newTicketButton}
         {newUserButton}
         {ticketsButton}

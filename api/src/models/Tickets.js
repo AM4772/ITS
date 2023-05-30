@@ -13,6 +13,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      application: {
+        type: DataTypes.STRING,
+      },
       details: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -26,10 +29,10 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       priority: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       severity: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       nature: {
         type: DataTypes.STRING,

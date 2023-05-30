@@ -88,6 +88,9 @@ const TicketsList = () => {
             <th scope="col" className="table__th ticket__status">
               Status
             </th>
+            <th scope="col" className="table__th ticket__app">
+              App
+            </th>
             <th scope="col" className="table__th ticket__created">
               Created
             </th>
@@ -97,10 +100,10 @@ const TicketsList = () => {
             <th scope="col" className="table__th ticket__title">
               Title
             </th>
-            <th scope="col" className="table__th ticket__username">
+            <th scope="col" className="table__th ticket__author">
               Created by
             </th>
-            <th scope="col" className="table__th ticket__username">
+            <th scope="col" className="table__th ticket__assignee">
               Assigned to
             </th>
             <th scope="col" className="table__th ticket__updated">

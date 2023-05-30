@@ -5,9 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { parseISO, formatDistanceToNow, formatDistance } from "date-fns";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
+import useAuth from "../../hooks/useAuth";
 
 const Ticket = ({ ticketId, userID }) => {
+  const { isManager, isAdmin } = useAuth();
   let assignee;
+
   const { ticket } = useGetTicketsQuery("ticketsList", {
     selectFromResult: ({ data }) => ({
       ticket: data?.entities[ticketId],
@@ -72,22 +75,30 @@ const Ticket = ({ ticketId, userID }) => {
       timeAgo = `${timePeriod}`;
     }
 
-    const handleEdit = () => navigate(`/dash/tickets/${ticketId}`);
+    let canEdit;
+    if (!ticket.status || isAdmin || isManager) {
+      canEdit = `/dash/tickets/${ticketId}`;
+    } else {
+      canEdit = "/dash/tickets";
+    }
+
+    const handleEdit = () => navigate(canEdit);
 
     return (
       <tr className="table__row">
         <td className="table__cell ticket__status">
           {ticket.status ? (
-            <span className="ticket__status--completed">Completed</span>
+            <span className="ticket__status--completed">Closed</span>
           ) : (
             <span className="ticket__status--open">Open</span>
           )}
         </td>
+        <td className="table__cell ticket__app">{ticket.application}</td>
         <td className="table__cell ticket__created">{created}</td>
         <td className="table__cell ticket__updated">{updated}</td>
         <td className="table__cell ticket__title">{ticket.name}</td>
-        <td className="table__cell ticket__username">{ticket.author}</td>
-        <td className="table__cell ticket__username">{assignee}</td>
+        <td className="table__cell ticket__author">{ticket.author}</td>
+        <td className="table__cell ticket__assignee">{assignee}</td>
         <td className="table__cell ticket__updated">{timeAgo}</td>
 
         <td className="table__cell">

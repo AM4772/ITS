@@ -35,6 +35,7 @@
 /* || UTILITY CLASSES */
 .errmsg {
   display: inline-block;
+  justify-content: center;
   background-color: var(--ERRORBGCOLOR);
   color: var(--ERROR);
   padding: 0.25em;

@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import { useGetUsersQuery } from "../users/usersApiSlice";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
-import PulseLoader from "react-spinners/PulseLoader";
+
 import { priorityName } from "../../config/priority";
 import { severityName } from "../../config/severity";
 
@@ -12,16 +13,16 @@ const SingleUserTicketsList = () => {
 
   const { id } = useParams();
 
-  const { user } = useGetUsersQuery("usersList", {
+  const { user, isLoading: isLoadingUser } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => ({
       user: data?.entities[id].username,
     }),
   });
 
-  userName = user;
+  userName = user ?? isLoadingUser;
 
   const {
-    data: tickets,
+    data: tickets = [],
     isLoading,
     isSuccess,
     isError,
@@ -32,15 +33,22 @@ const SingleUserTicketsList = () => {
     refetchOnMountOrArgChange: true,
   });
 
+  const { ids, entities } = tickets;
+
+  // const sortedTickets = useMemo(() => {
+  //   const sortedTickets = ids.slice();
+  //   sortedTickets.sort((entities[a], entities[b]) => entities[b].priority - entities[a].priority);
+  //   return sortedTickets;
+  // }, [ids]);
+
+  // console.log(sortedTickets);
+
   if (isLoading) content = <PulseLoader color={"#FFF"} />;
 
   if (isError) content = <p className="errmsg">{error?.data?.message}</p>;
 
   if (isSuccess) {
-    const { ids, entities } = tickets;
-
     let ticketsIds = [...ids];
-
     const tableContent = ticketsIds.map((tickets) =>
       entities[tickets].userId === Number(id) ||
       entities[tickets].author === userName ? (

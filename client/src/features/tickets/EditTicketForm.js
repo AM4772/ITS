@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {
-  useUpdateTicketMutation,
-  useDeleteTicketMutation,
-} from "./ticketsApiSlice";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +7,10 @@ import {
   faWindowRestore,
 } from "@fortawesome/free-solid-svg-icons";
 import { parseISO, formatDistanceToNow, formatDistance } from "date-fns";
+import {
+  useUpdateTicketMutation,
+  useDeleteTicketMutation,
+} from "./ticketsApiSlice";
 import useAuth from "../../hooks/useAuth";
 import { PRIORITIES } from "../../config/priority";
 import { SEVERITIES } from "../../config/severity";

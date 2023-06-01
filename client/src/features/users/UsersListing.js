@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 // import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBug } from "@fortawesome/free-solid-svg-icons";
 import { useGetUsersQuery } from "./usersApiSlice";
-import PulseLoader from "react-spinners/PulseLoader";
 
 const UsersListing = () => {
   const {

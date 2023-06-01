@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
 import EditTicketForm from "./EditTicketForm";
-import PulseLoader from "react-spinners/PulseLoader";
 import useAuth from "../../hooks/useAuth";
 import useTitle from "../../hooks/useTitle";
 

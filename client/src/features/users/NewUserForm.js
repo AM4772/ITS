@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useAddNewUserMutation } from "./usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { useAddNewUserMutation } from "./usersApiSlice";
 import { ROLES } from "../../config/roles";
 import useTitle from "../../hooks/useTitle";
 import useAuth from "../../hooks/useAuth";
 
 const USER_REGEX = /^[A-z]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const NewUserForm = () => {
   useTitle("techBugs: New User");

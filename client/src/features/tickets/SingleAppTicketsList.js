@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
-import PulseLoader from "react-spinners/PulseLoader";
 import { priorityName } from "../../config/priority";
 import { severityName } from "../../config/severity";
 

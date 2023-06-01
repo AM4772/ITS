@@ -1,7 +1,7 @@
 import React from "react";
+import PulseLoader from "react-spinners/PulseLoader";
 import { useGetUsersQuery } from "../users/usersApiSlice";
 import NewTicketForm from "./NewTicketForm";
-import PulseLoader from "react-spinners/PulseLoader";
 import useTitle from "../../hooks/useTitle";
 
 const NewTicket = () => {

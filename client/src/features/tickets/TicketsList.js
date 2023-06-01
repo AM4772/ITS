@@ -1,14 +1,16 @@
 import React from "react";
+import PulseLoader from "react-spinners/PulseLoader";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
 import Ticket from "./Ticket";
 import useAuth from "../../hooks/useAuth";
-import PulseLoader from "react-spinners/PulseLoader";
 
 const TicketsList = () => {
   const { username, isManager, isAdmin, isDeveloper } = useAuth();
+
   let content;
   let userID;
+
   const {
     data: tickets,
     isLoading,

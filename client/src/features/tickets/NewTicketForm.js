@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAddNewTicketMutation } from "./ticketsApiSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { useAddNewTicketMutation } from "./ticketsApiSlice";
 import useAuth from "../../hooks/useAuth";
 import { PRIORITIES } from "../../config/priority";
 import { SEVERITIES } from "../../config/severity";

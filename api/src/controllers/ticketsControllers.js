@@ -7,7 +7,9 @@ const asyncHandler = require("express-async-handler"); // helps avoid using try/
 // @access Public
 const getAllTickets = asyncHandler(async (req, res) => {
   // Get all tickets from db
-  const tickets = await Tickets.findAll();
+  const tickets = await Tickets.findAll({
+    order: [["status", "ASC"]],
+  });
 
   // If no tickets
   if (!tickets?.length) {

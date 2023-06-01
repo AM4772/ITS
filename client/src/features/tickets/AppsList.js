@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGetTicketsQuery } from "./ticketsApiSlice";
 import PulseLoader from "react-spinners/PulseLoader";
+import { useGetTicketsQuery } from "./ticketsApiSlice";
 
 const AppsList = () => {
   const {

@@ -43,7 +43,7 @@ const Login = () => {
       } else if (err.status === 400) {
         setErrMsg("Missing Username or Password");
       } else if (err.status === 401) {
-        setErrMsg("Unauthorized");
+        setErrMsg("Unauthorized: Wrong Username or Password");
       } else {
         setErrMsg(err.data?.message);
       }
@@ -63,12 +63,11 @@ const Login = () => {
     <section className="public">
       <header>
         <h1>User Login</h1>
-      </header>
-      <main className="login">
         <p ref={errRef} className={errClass} aria-live="assertive">
           {errMsg}
         </p>
-
+      </header>
+      <main className="login">
         <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input

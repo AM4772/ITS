@@ -13,3 +13,12 @@ export function priorityName(priorityV) {
     }
   }
 }
+
+export function priorityValue(priorityK) {
+  for (const [k, v] of Object.entries(PRIORITIES)) {
+    if (priorityK === k) {
+      console.log(v);
+      return v;
+    }
+  }
+}

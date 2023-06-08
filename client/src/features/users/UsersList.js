@@ -2,8 +2,10 @@ import React from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useGetUsersQuery } from "./usersApiSlice";
 import User from "./User";
+import useTitle from "../../hooks/useTitle";
 
 const UsersList = () => {
+  useTitle("Bugxinator: Users List & Settings");
   const {
     data: users,
     isLoading,

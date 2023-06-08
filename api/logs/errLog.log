@@ -66,3 +66,201 @@ notNull Violation: users.email cannot be null	POST	/users	undefined
 20230522	14:51:59	747d6a83-1f62-4223-b347-af57dbd64c3c	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
 20230522	14:52:52	3a9364fd-b58c-4ded-810c-2f9e5abe5688	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
 20230522	14:55:25	f99ee28e-6e2d-438a-8e72-ed5dd8715fb1	SequelizeValidationError: notNull Violation: tickets.application cannot be null	PUT	/tickets	http://localhost:3000
+20230602	14:59:43	3f935dd5-76f6-481e-8ecd-85e52d3fc6a2	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Assignee%20ASC	undefined
+20230602	15:02:43	2dc69e92-429c-47ec-bcad-3b51df06cc83	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Nature%20ASC	undefined
+20230602	16:15:35	8666e566-b477-4ad0-ba7a-4db22f79cb09	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:18:19	f1b909ce-bfc3-40e5-be71-538c4174f357	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:19:59	22240a2e-92ad-4864-8920-418b8e158168	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:20:14	be5a9e7b-8bf5-464c-a41f-658f31322735	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:20:29	24b25343-24ea-49e4-9d9f-ebf967bf8254	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:20:43	18cd7722-2d44-4de3-a616-45e7b85bc4f3	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:21:49	330e240f-c71d-4b81-aa70-2415f9422e15	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:22:04	3515ad12-818e-41be-90f4-655ff78534e4	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230602	16:22:15	3fc71452-7f6f-4cef-aa8a-295d4e7b9085	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:24:59	7842a580-723a-46d6-9231-fbd40f68748e	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:25:14	69bec52f-6c53-45ce-9353-a28d634312f0	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:25:29	423920c6-8ed6-4168-84b2-e252a2ced0ec	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:25:45	fdfc6a58-0e80-4dc8-81ba-7788cc742561	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:26:00	3b6c0d0f-d084-4aa5-9e6d-ab55366fe55f	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:26:15	7e01eb8f-6b5a-4515-ba76-fba9790d3626	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:26:30	865130a6-78f8-41a6-b50e-f05292845801	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:26:45	db0d2ae6-af74-4bde-a6ac-6920aee83a07	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:27:00	c06626b7-0fe9-4bd3-a950-6c444177b28e	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:27:16	00013fc9-e4f8-450c-87d6-4c5cb376216b	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:27:31	0f403e9c-a56d-4d22-a3c4-07d67283bd9c	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:27:46	9be782a4-bc9c-489c-bf3b-c3d77d9b1c82	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:28:01	7d9aeeda-eed4-4651-812b-7c1003fdd3d1	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:28:16	153837c3-e9e7-49d7-8a24-ae0ef268cdd4	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:28:31	560ce883-03fb-4d48-b622-84a7148076be	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:28:47	d693a46a-2a04-4aa5-8f73-b371276748e2	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:29:02	0859dd2b-6921-4588-90c0-932df55ba6bc	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:29:17	36b59759-7a07-4c64-b685-4325676c9773	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:29:32	d807e38f-34b2-4967-bdee-61f7d9b2cdd3	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:29:47	702f63f0-92a8-4e28-a057-70da8632b574	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:30:02	8857051a-76fa-4237-b586-66fcb0afa014	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:30:13	5e713412-4a9b-4d56-9e74-167c2efbb4ff	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230603	23:30:16	39495e1b-3888-493b-bb79-d65244e47715	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:13:52	8fce651f-54ca-4c09-906a-b199b0458c50	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:15:21	04b0c062-0095-43d3-b7ec-a71cc75221a5	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:15:36	da0444e9-f85e-46db-8c18-eab499d90fed	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:15:51	0442751b-e92f-4294-8944-ed491fc2e6e7	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:16:06	2f0558f7-95c5-440b-813c-7a71a8c92f24	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:16:13	0fd8c407-cb97-4bea-afbc-7f480cf2fb89	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:16:23	dc22c17c-3287-49ed-9538-1f575e9c1566	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:16:38	a8e96d30-c1f7-40da-8954-dffdaf80b612	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:16:53	653ed700-8428-42a2-83f8-585bd572d848	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:17:09	4d1b366f-fc90-4622-9009-a532b3a8afcd	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:17:23	1a7d982a-b4a8-4d3b-95ae-8283bef47501	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:17:37	49453526-7c7b-4c67-a7c6-5d824c890908	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:17:41	62d57342-ea79-43e8-a994-215dbea476aa	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:18:45	2995dff1-f992-464c-928b-3722151018c8	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:19:00	9465a7da-b6b6-48bb-ac52-f5636c005c15	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:19:15	b9296e2b-ec40-47b3-b381-ad1f9bada314	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:19:31	490d20f3-f552-4abb-83d4-c8e5b0375c0f	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:19:46	3ad901e7-a7af-4b6e-8a8c-9a8bc65e76b2	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:20:01	57ffb9d9-162d-4f76-af2e-cb2cc8f366d3	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:20:16	dbedee99-a7ae-4ccb-af20-1a2642eeb156	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:20:32	538b762d-0c32-4e99-a5a4-78194c0f2292	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:20:43	d562c17a-60db-4df9-84b5-3b93238f13ce	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:20:59	29a86951-0620-404a-b6b5-ed9df0ee1823	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:21:14	19a7008f-71a7-4662-b978-a71bf58861a5	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:21:30	0fb0fd10-4a10-45c3-911b-b0177273c544	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:21:45	3bf472a2-9bc2-4937-993a-7c2bf268dc7f	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:21:53	bb9614e2-cd74-497b-a8cc-95dfca0f8343	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:22:08	12adda17-789e-4151-8bd8-1e546602f533	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:22:23	aa49871b-10e1-4cc6-a5db-9f8e049d4320	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:22:38	42e3c1bb-912c-44ea-8872-c8ec37fc53eb	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:22:54	42546cd7-ddf3-4e9c-9875-183f70470ce6	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:23:09	084f564f-3092-4773-bc85-0a84775fc397	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:23:24	4caa0ad4-fe8e-4c89-ae5a-3a684542c0a1	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:23:39	82d9572b-a5db-4771-ba13-3f4d874ecff0	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:23:54	51851049-bde0-4b6b-941b-b63e149f0527	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:24:10	17e1a245-292f-4796-b477-5d01ddd1a0e7	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:24:11	851f0976-4fe4-4d5b-a940-ddf6bb7f62f0	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:24:26	86dd7e55-3373-47c7-a024-48797546ac06	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:24:42	3dd792c5-1bea-4339-95e5-eceeca661e1d	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:24:58	0c59cc1e-aa4c-4011-8842-0342ddd2f374	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:25:14	84d8bef8-6bd5-4f2a-983d-f9cef51d49a4	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:25:30	f4afd564-35bc-4b7b-99d7-b4f7b9aad095	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:25:46	bdfca0ca-a544-4bb2-a845-3bbcdd2b006a	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:26:02	2220c8eb-4d5c-4690-9d89-d71a357d7f1a	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:26:18	c8bc1f53-b6cc-423d-a7ed-d2cea75d8e42	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:26:34	3a764adb-8f1c-4344-b265-e6752fd6bfd7	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:26:50	d0331eab-f101-4533-8877-1429c8f9f8be	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:27:06	8a951389-0819-4270-b772-e3cd232e5778	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:27:22	81b8528a-c6fb-4f56-851c-9cd1822ede53	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:27:38	6f3ce960-5fc0-4ecb-a345-48cee7620191	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:27:54	ad568125-7d92-463f-a78f-2767a033a1ce	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:28:10	e44c6b27-a929-4252-a013-abcc210a7319	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:28:26	ec30a02d-f922-41ce-bbf2-1becfdb1ed00	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:28:42	9b8a31b1-05c1-4f69-b59a-0827d711f156	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:28:58	8c5019cc-1ef4-4181-8b08-38e172864453	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:29:14	b22fa7d7-c4e5-452d-86be-826283c554bb	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:29:31	e081c51d-b946-44f7-bf2b-3ab0cbec3a98	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:29:46	5d85e7bc-e933-4abe-8d28-8e24745bf4a3	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:29:52	ade56859-3232-49f1-86ba-3b7fe256e350	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:30:08	ac54cbce-57b1-4d05-9c7b-b0df0ba50db2	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:30:24	e6f8599e-7375-4547-bcf0-6e9ba765bd16	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:30:41	a9f4d4a0-b758-41f3-a67b-a8075646099e	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:30:56	10afd3ce-9713-4c00-bbe6-0cea419d89b6	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:31:12	31c56755-783f-4be3-8f6e-5b09ff08e2ce	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:31:28	7c0af7e5-c85d-44e7-8f60-a9a2dbc37ecc	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:31:44	cae370dc-4cad-418b-91f2-02d8d4d08ad4	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:32:00	200d9b3a-152c-4010-aa79-3dc93992ec63	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:32:16	436e81a0-6e42-476d-9cc7-f6c2bc0be443	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:32:32	c959ecd9-14c5-4028-8c99-7807d446a78e	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:32:44	732cc8e6-58e4-4f88-8d52-c06a6f362690	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:32:52	4f89b037-68fb-439c-9f8b-3c0fdbc4a2ad	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:36:03	2f1e8ce5-4b5d-4460-b594-a6276460b502	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:36:18	0556f530-a553-4611-ba6b-f0e92279f6d1	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:36:33	e1bc008c-de76-49ce-9051-144c02591adc	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:36:48	69bdd5d5-401b-4ca7-825a-cc2795203692	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:37:03	d1b50d03-2a02-4223-9182-9fb6eda9ae34	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:37:19	0d66b3dd-e672-4488-9e87-56eb23d64c33	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:37:34	7be965eb-2693-4f8e-8dbd-51f9b634a9a9	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:37:49	57d9fe57-c24e-484a-be4c-2b255f6c0e41	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:38:04	a6794a3a-e5ab-4eff-bcd8-a3365a555186	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:38:19	345cfe45-d325-43ef-8e20-fe38fc49f1b5	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:38:34	2a67ece9-94a3-4cc5-b141-5c3d3eab8c7e	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:38:50	0d569df0-a007-46c0-9426-3334e0c98e69	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:39:05	775eff5b-ae2e-4b0b-ab9c-102363218874	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:39:20	cee5d773-3dc7-4919-8b30-9085c2b7eaa4	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:39:35	2a01242c-688e-4da6-8ed1-8885ec17a4a5	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:39:50	3fbf4a59-9876-4812-9754-391590757bc6	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:40:06	fed562ec-cf95-4b4a-8477-713f657b353f	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:40:21	c864f66d-761a-4e74-a8bf-f5e00a6d36f2	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:40:36	b414db9e-f4cc-4db1-80cd-d10e7e9b9ab0	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:40:51	53020537-7970-48ed-9a24-616995419a61	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:41:06	cb48a308-b3b8-4292-bb58-c74a1ae3dfa6	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:41:22	bc258d18-098f-4400-866b-29b776230fb4	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:41:37	e49d22bf-3687-4923-b147-a66bd5f8210b	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:41:52	2bbde0fb-babd-4a1d-a89f-8b776d091fbb	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:42:07	256d3749-ed31-487a-9f2b-903e13270fca	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:42:15	4bfe7c13-04f8-4641-aef2-d48f9dbc7cff	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:42:31	f21b4a24-ecba-4b69-9651-5b507f04a838	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:42:47	812d81f9-3089-46f9-b72d-f109829c3838	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:43:03	99c7af45-8e14-4fd4-8e32-43060df3b4cc	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:43:19	15fe744a-2b6f-4f0f-8113-fa763275eb5b	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:43:35	975c5a75-ef4b-4afd-a8af-fbb4a5c5dd5d	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:43:51	e98746ec-3da3-4ac3-b056-f5fce2893486	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:44:07	16613e3a-017c-4a73-bcac-8319ccf95e31	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230604	16:44:23	3f96def3-fdee-4c65-8415-813b852463ba	Error: Cannot set headers after they are sent to the client	GET	/tickets?sortArg=Priority+ASC	http://localhost:3000
+20230605	18:08:35	d5319e9b-cc9d-407b-addb-2256c4a616fe	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:08:50	e6ce0ad1-5345-4fea-a67d-5a51abd3bba3	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:09:05	b40b2736-b48f-4d59-9f5d-b1d79292e2a1	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:09:21	09e00ada-24f6-47f9-ac70-681b0c5ecc2e	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:09:36	b79d3a6f-2a16-4a55-a08a-008e41e2b45e	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:09:51	5ec4fc72-6861-4422-aff9-521274f75435	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:10:06	7b2468b5-a3f3-4dd6-be56-f1df5cc8f218	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:10:21	006995f3-6975-4adb-a4c5-63942e00c93a	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:10:37	f7e94a69-69ce-4d87-8b03-7c0178fd2a55	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:10:52	c1c82955-6d89-477e-8785-de658678364e	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:11:07	cfa1f4d5-3e1d-4749-9788-7cfee44d82c2	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:11:22	1a7424fc-54a2-4dd8-a09e-d3a996f2a3bf	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:11:37	2896cee1-28f3-4a49-8ef8-b40ffabfdd8d	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:11:52	ee40aa4f-61b7-4fe7-8ee2-33c0afd3ce49	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:12:08	40b313b8-37a0-4503-909f-35fbdfe420a5	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:12:23	c33ad643-3632-41a1-b37d-6867965927e1	Error: Cannot set headers after they are sent to the client	GET	/tickets?	http://localhost:3000
+20230605	18:13:55	cdf132a6-754a-4f3e-9ae6-b24c6ce59711	TypeError: a.status.toUpperCase is not a function	GET	/tickets?sortArg=Status	http://localhost:3000
+20230605	18:14:10	53733a12-57a1-4aa7-af03-a259c92571c5	TypeError: a.status.toUpperCase is not a function	GET	/tickets?sortArg=Status	http://localhost:3000
+20230605	18:14:26	8a86adb3-097b-4d4e-8650-e37580ddc258	TypeError: a.status.toUpperCase is not a function	GET	/tickets?sortArg=Status	http://localhost:3000
+20230605	18:14:41	0cb1dfe1-5254-488b-aac6-015adf5b4fef	TypeError: a.status.toUpperCase is not a function	GET	/tickets?sortArg=Status	http://localhost:3000
+20230605	18:14:56	c4539706-d0ff-457d-97c1-e70de4c12818	TypeError: a.status.toUpperCase is not a function	GET	/tickets?sortArg=Status	http://localhost:3000
+20230607	09:08:04	24488b2e-9154-4ff2-b0c3-c203b98f06e7	Error: Cannot set headers after they are sent to the client	GET	/tickets?filterArg=	undefined
+20230607	09:09:31	4ac90f21-0cf7-431c-b48e-ec478f875b41	Error: Cannot set headers after they are sent to the client	GET	/tickets?filterArg=Critical	undefined
+20230607	16:14:54	1e257eb9-0c01-49a7-8727-f507be405cd3	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	16:21:49	768bbee2-ddb4-4c07-8441-0a1a5685cc8a	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	19:17:08	9e432177-0af2-4a0f-93ae-fd78754b471a	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	19:18:41	a9188ac2-77a3-4247-a827-6226e7c7e1ba	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	19:20:08	9dd514c7-672f-4d5e-bbe4-d4efeb5a4151	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	19:27:58	4ed33237-3f5c-470c-9475-9473c065e147	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	19:32:25	4e92ad74-7bd2-4c9e-ba2b-f517eec0f56a	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	http://localhost:3000
+20230607	19:40:20	4fdaa51a-2376-4039-b48a-d1491a6005be	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230607	19:47:38	a760bb3a-087f-46aa-8ec9-78f0c717dbd2	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230607	19:51:05	e9a73b27-b853-42db-9a5d-bda3ecd8763a	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230607	19:51:48	5c972907-c879-471e-a528-ccbc93d2c7fb	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230607	19:54:01	d4b9bdeb-00d5-4646-9834-6ff8c5edff26	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230607	19:57:16	84888d65-aa92-4c28-b667-9ac6bf7fee65	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230607	20:01:26	f386a7ec-5626-4cf5-a4ae-216cd1e9a30c	SequelizeUniqueConstraintError: llave duplicada viola restricción de unicidad «tickets_pkey»	POST	/tickets	undefined
+20230607	20:03:32	b159cb2e-23c7-47fb-af6d-f66ae63be104	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230607	20:08:43	ca27bdbe-2f3c-43d0-8f0f-59974ba81c6d	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230607	20:12:02	24e96659-0951-4a6d-9b6b-f623e9dc2e63	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230607	20:20:36	a2497f7f-5731-4dfa-8e0e-d9a0335b60ac	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230607	20:24:07	cc9ce4ff-982a-4a66-853f-1eda73219f8a	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230607	20:38:27	3ce0665d-4809-4891-af48-244dbcd7f7b0	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	08:23:48	686dd6d0-4ea7-4d92-96b9-6f7bf2b34027	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	08:25:24	32544b5d-09d2-4f89-b9be-2908b2ae4469	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	08:43:17	af362b0a-9be3-4b50-b551-5bd1fbeafc1e	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	08:56:09	7dd65343-6ac3-45f3-9740-3ef64f0fc06b	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:02:16	ccd6b80a-94f5-4507-be7a-7cfb4940e1d9	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:03:56	c195f061-98f0-4a70-a3f4-7fcb884ee4cc	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:12:05	3bb3eb27-323d-4ca9-bee3-c0a1e38c5208	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:23:24	efc98625-2eef-4766-b5f6-1ed1ac3e1fa7	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:44:06	4882ba61-15c0-4e77-b8f0-e902cbb547a7	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:56:14	c50dc25c-7117-4775-991e-ccca7f8693fc	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	09:57:47	ac4f9dbb-90c4-41b1-86bc-1c2079f84bba	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	10:06:06	6c298356-59ff-4062-88ae-10135f67b86f	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	10:13:30	059bd255-9dd3-4a83-af2b-245debd2b1e0	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	10:37:03	d235a90b-775e-49f3-b75e-609d329017d1	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	10:49:35	b5f926a6-784a-4a90-b6d8-0d3e9fc1afe1	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000
+20230608	10:56:03	2a16f330-12a1-4f47-823b-ea6dc9102647	SequelizeDatabaseError: la sintaxis de entrada no es válida para tipo integer: «»	POST	/tickets	http://localhost:3000

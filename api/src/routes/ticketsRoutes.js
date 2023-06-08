@@ -7,9 +7,11 @@ router.use(verifyJWT);
 
 router
   .route("/") // this will match the /tickets in the routes/index.js
-  .get(ticketsController.getAllTickets)
+  .get(ticketsController.getTickets)
   .post(ticketsController.createNewTicket)
   .put(ticketsController.updateTicket)
   .delete(ticketsController.deleteTicket);
+
+// router.route("/sorted").get(ticketsController.getSortedTickets);
 
 module.exports = router;

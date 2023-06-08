@@ -1,11 +1,16 @@
 const { Tickets } = require("../../config/db.js");
-const { Sequelize, Op } = require("sequelize");
+const { Op } = require("sequelize");
 const asyncHandler = require("express-async-handler"); // helps avoid using try/catch handlers
+// const { statusValue } = require("../../config/status.js");
+// const { priorityValue } = require("../../config/priority.js");
+// const { severityValue } = require("../../config/severity.js");
 
 // @desc Get all tickets
 // @route GET /tickets
 // @access Public
-const getAllTickets = asyncHandler(async (req, res) => {
+const getTickets = asyncHandler(async (req, res) => {
+  // Get sort params
+  const { sortArg } = req.query;
   // Get all tickets from db
   const tickets = await Tickets.findAll({
     order: [["status", "ASC"]],
@@ -16,7 +21,97 @@ const getAllTickets = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: "No tickets found" });
   }
 
-  res.json(tickets);
+  if (sortArg) {
+    if (sortArg === "Priority ASC") {
+      const priorityAsc = [...tickets].sort((a, b) => a.priority - b.priority);
+      res.json(priorityAsc);
+    } else if (sortArg === "Priority DESC") {
+      const priorityDesc = [...tickets].sort((a, b) => b.priority - a.priority);
+      res.json(priorityDesc);
+    } else if (sortArg === "Severity ASC") {
+      const severityAsc = [...tickets].sort((a, b) => a.severity - b.severity);
+      res.json(severityAsc);
+    } else if (sortArg === "Severity DESC") {
+      const severityDesc = [...tickets].sort((a, b) => b.severity - a.severity);
+      res.json(severityDesc);
+    } else if (sortArg === "Nature ASC") {
+      const natureAsc = [...tickets].sort((a, b) => {
+        const nameA = a.nature.toUpperCase();
+        const nameB = b.nature.toUpperCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+      });
+      res.json(natureAsc);
+    } else if (sortArg === "Nature DESC") {
+      const natureDesc = [...tickets].sort((a, b) => {
+        const nameA = a.nature.toUpperCase();
+        const nameB = b.nature.toUpperCase();
+        if (nameA < nameB) return 1;
+        if (nameA > nameB) return -1;
+        return 0;
+      });
+      res.json(natureDesc);
+    } else if (sortArg === "App ASC") {
+      const applicationAsc = [...tickets].sort((a, b) => {
+        const nameA = a.application.toUpperCase();
+        const nameB = b.application.toUpperCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+      });
+      res.json(applicationAsc);
+    } else if (sortArg === "App DESC") {
+      const applicationDesc = [...tickets].sort((a, b) => {
+        const nameA = a.application.toUpperCase();
+        const nameB = b.application.toUpperCase();
+        if (nameA < nameB) return 1;
+        if (nameA > nameB) return -1;
+        return 0;
+      });
+      res.json(applicationDesc);
+    } else if (sortArg === "Assignee ASC") {
+      const AssigneeAsc = [...tickets].sort((a, b) => a.userId - b.userId);
+      res.json(AssigneeAsc);
+    } else if (sortArg === "Assignee DESC") {
+      const AssigneeDesc = [...tickets].sort((a, b) => b.userId - a.userId);
+      res.json(AssigneeDesc);
+    } else if (sortArg === "Status") {
+      const Status = [...tickets].sort((a, b) => a.status - b.status);
+      res.json(Status);
+    }
+    // } else if (filterArg) {
+    //   if (
+    //     filterArg === "Urgent" ||
+    //     filterArg === "High" ||
+    //     filterArg === "Medium" ||
+    //     filterArg === "Low"
+    //   ) {
+    //     const priorityFilter = [...tickets].filter(
+    //       (s) => s.priority === priorityValue(filterArg)
+    //     );
+    //     res.json(priorityFilter);
+    //   } else if (
+    //     filterArg === "Critical" ||
+    //     filterArg === "Major" ||
+    //     filterArg === "Normal" ||
+    //     filterArg === "Minor" ||
+    //     filterArg === "Trivial" ||
+    //     filterArg === "Enhancement"
+    //   ) {
+    //     const severityFilter = [...tickets].filter(
+    //       (s) => s.severity === severityValue(filterArg)
+    //     );
+    //     res.json(severityFilter);
+    //   } else if (filterArg === "Open" || filterArg === "Closed") {
+    //     const statusFilter = [...tickets].filter(
+    //       (s) => s.status === statusValue(filterArg)
+    //     );
+    //     res.json(statusFilter);
+    //   }
+  } else {
+    res.json(tickets);
+  }
 });
 
 // @desc Create new ticket
@@ -32,7 +127,6 @@ const createNewTicket = asyncHandler(async (req, res) => {
     priority,
     severity,
     nature,
-    status,
     resolution,
     author,
     userId,
@@ -173,7 +267,7 @@ const deleteTicket = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getAllTickets,
+  getTickets,
   createNewTicket,
   updateTicket,
   deleteTicket,

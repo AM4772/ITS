@@ -22,13 +22,12 @@ const NewTicketForm = ({ users }) => {
   const [details, setDetails] = useState("");
   const [steps, setSteps] = useState("");
   const [version, setVersion] = useState("");
-  const [priority, setPriority] = useState("");
-  const [severity, setSeverity] = useState("");
+  const [priority, setPriority] = useState(5);
+  const [severity, setSeverity] = useState(7);
   const [nature, setNature] = useState("");
-  const [author, setAuthor] = useState(username);
-  const [status] = useState(false);
+  const [author] = useState(username);
   const [resolution, setResolution] = useState("");
-  const [userId, setUserId] = useState(users[0].id);
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
     if (isSuccess) {
@@ -37,8 +36,8 @@ const NewTicketForm = ({ users }) => {
       setDetails("");
       setSteps("");
       setVersion("");
-      setPriority("");
-      setSeverity("");
+      setPriority(5);
+      setSeverity(7);
       setNature("");
       setUserId("");
       navigate("/dash/tickets");
@@ -50,21 +49,19 @@ const NewTicketForm = ({ users }) => {
   const onDetailsChanged = (e) => setDetails(e.target.value);
   const onStepsChanged = (e) => setSteps(e.target.value);
   const onVersionChanged = (e) => setVersion(e.target.value);
-  const onPriorityChanged = (e) => setPriority(e.target.value);
-  const onSeverityChanged = (e) => setSeverity(e.target.value);
+  const onPriorityChanged = (e) => setPriority(parseInt(e.target.value));
+  const onSeverityChanged = (e) => setSeverity(parseInt(e.target.value));
   const onNatureChanged = (e) => setNature(e.target.value);
-  const onAuthorChanged = (e) => setAuthor(username);
   const onResolutionChanged = (e) => setResolution(e.target.value);
-  const onUserIdChanged = (e) => setUserId(e.target.value);
+  const onUserIdChanged = (e) => setUserId(parseInt(e.target.value));
 
   const canSave =
-    [name, application, details, userId, author].every(Boolean) && !isLoading;
+    [name, application, details, author].every(Boolean) && !isLoading;
 
   const onSaveTicketClicked = async (e) => {
     e.preventDefault();
     if (canSave) {
       await addNewTicket({
-        userId: userId,
         name,
         application,
         details,
@@ -74,11 +71,13 @@ const NewTicketForm = ({ users }) => {
         priority,
         severity,
         nature,
-        status,
         resolution,
+        userId,
       });
     }
   };
+
+  // if (isSuccess) console.log(data);
 
   const options = users.map((user) =>
     user.role === "Developer" || user.role === "Manager" ? (
@@ -142,9 +141,9 @@ const NewTicketForm = ({ users }) => {
   const validVersionClass = !version ? "form__input--incomplete" : "";
 
   const content = (
-    <>
+    <section>
+      <p className={errClass}>{error?.data?.message}</p>
       <form className="form" onSubmit={onSaveTicketClicked}>
-        <p className={errClass}>{error?.data?.message}</p>
         <div className="form__title-row">
           <h2>New Bug</h2>
           <div className="form__action-buttons">
@@ -229,7 +228,6 @@ const NewTicketForm = ({ users }) => {
           autoComplete="off"
           value={username}
           readOnly
-          onChange={onAuthorChanged}
         />
 
         {(isManager || isAdmin) && (
@@ -314,7 +312,7 @@ const NewTicketForm = ({ users }) => {
           </>
         )}
       </form>
-    </>
+    </section>
   );
 
   return content;

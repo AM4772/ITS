@@ -12,7 +12,7 @@ const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const NewUserForm = () => {
-  useTitle("techBugs: New User");
+  useTitle("Bugxinator: New User");
 
   const { status: loggedInUserRole } = useAuth();
 
@@ -102,9 +102,9 @@ const NewUserForm = () => {
   const validRoleClass = !role ? "form__input--incomplete" : "";
 
   const content = (
-    <>
+    <section>
+      <p className={errClass}>{error?.data?.message}</p>
       <form className="form" onSubmit={onSaveUserClicked}>
-        <p className={errClass}>{error?.data?.message}</p>
         <div className="form__title-row">
           <h2>New User</h2>
           <div className="form__action-buttons">
@@ -190,7 +190,7 @@ const NewUserForm = () => {
           {options}
         </select>
       </form>
-    </>
+    </section>
   );
 
   return content;

@@ -6,7 +6,7 @@ import { useGetUsersQuery } from "./usersApiSlice";
 import useTitle from "../../hooks/useTitle";
 
 const EditUser = () => {
-  useTitle("techBugs: Edit User");
+  useTitle("Bugxinator: Edit User");
 
   const { id } = useParams();
 

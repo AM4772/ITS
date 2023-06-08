@@ -1,11 +1,10 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useGetUsersQuery } from "../users/usersApiSlice";
-import { useGetTicketsQuery } from "./ticketsApiSlice";
-
-import { priorityName } from "../../config/priority";
-import { severityName } from "../../config/severity";
+import { useGetSortedTicketsQuery } from "./ticketsApiSlice";
+import SingleUserTicket from "./SingleUserTicket.js";
+import { SORTOPTIONS } from "../../config/sortOptions";
 
 const SingleUserTicketsList = () => {
   let content;
@@ -21,94 +20,110 @@ const SingleUserTicketsList = () => {
 
   userName = user ?? isLoadingUser;
 
+  const [sortArg, setSortArg] = useState();
+
   const {
     data: tickets = [],
     isLoading,
     isSuccess,
     isError,
     error,
-  } = useGetTicketsQuery("ticketsList", {
-    pollingInterval: 15000,
-    refetchOnFocus: true,
-    refetchOnMountOrArgChange: true,
-  });
-
-  const { ids, entities } = tickets;
-
-  // const sortedTickets = useMemo(() => {
-  //   const sortedTickets = ids.slice();
-  //   sortedTickets.sort((entities[a], entities[b]) => entities[b].priority - entities[a].priority);
-  //   return sortedTickets;
-  // }, [ids]);
-
-  // console.log(sortedTickets);
+  } = useGetSortedTicketsQuery(
+    { sortArg },
+    {
+      pollingInterval: 15000,
+      refetchOnFocus: true,
+      refetchOnMountOrArgChange: true,
+    }
+  );
 
   if (isLoading) content = <PulseLoader color={"#FFF"} />;
 
   if (isError) content = <p className="errmsg">{error?.data?.message}</p>;
 
   if (isSuccess) {
+    const { ids, entities } = tickets;
     let ticketsIds = [...ids];
     const tableContent = ticketsIds.map((tickets) =>
       entities[tickets].userId === Number(id) ||
       entities[tickets].author === userName ? (
-        <tr
+        <SingleUserTicket
           key={entities[tickets].id}
-          className="table__row
-        "
-        >
-          <td className="table__cell">
-            <Link to={`/dash/tickets/${entities[tickets].id}`}>
-              {entities[tickets].name}
-            </Link>
-          </td>
-          <td className="table__cell">{entities[tickets].application}</td>
-          <td className="table__cell ticket__status">
-            {entities[tickets].status ? (
-              <span className="ticket__status--completed">Closed</span>
-            ) : (
-              <span className="ticket__status--open">Open</span>
-            )}
-          </td>
-          <td className="table__cell ticket__priority">
-            {priorityName(entities[tickets].priority)}
-          </td>
-          <td className="table__cell ticket__severity">
-            {severityName(entities[tickets].severity)}
-          </td>
-          <td className="table__cell ticket__nature">
-            {entities[tickets].nature}
-          </td>
-        </tr>
+          ticketId={entities[tickets].id}
+        />
       ) : null
     );
 
+    const clear = (e) => {
+      e.target.value = "";
+    };
+
+    function handleOrdChange(e) {
+      e.preventDefault();
+      if (e.target.value) {
+        setSortArg(e.target.value);
+      }
+      if (!e.nativeEvent.inputType) {
+        e.target.blur();
+      }
+    }
+
+    const sortOptions = Object.values(SORTOPTIONS).map((optSort) => {
+      return (
+        <option key={optSort} value={optSort}>
+          {" "}
+          {optSort}
+        </option>
+      );
+    });
+
     content = (
-      <table className="table__userbugs">
-        <thead className="table__thead">
-          <tr>
-            <th scope="col" className="table__th">
-              {userName}'s Bugs
-            </th>
-            <th scope="col" className="table__th ticket__app">
-              App
-            </th>
-            <th scope="col" className="table__th ticket__status">
-              Status
-            </th>
-            <th scope="col" className="table__th ticket__priority">
-              Priority
-            </th>
-            <th scope="col" className="table__th ticket__severity">
-              Severity
-            </th>
-            <th scope="col" className="table__th ticket__nature">
-              Nature
-            </th>
-          </tr>
-        </thead>
-        <tbody>{tableContent}</tbody>
-      </table>
+      <section>
+        <div className="ticket--sort">
+          <label htmlFor="sorted">Sort: </label>
+          <input
+            id="sorted"
+            type="input"
+            name="sorted"
+            list="sort"
+            onChange={handleOrdChange}
+            onClick={clear}
+            onFocus={clear}
+            value={sortArg}
+            placeholder="Asc/Desc"
+          />
+          <datalist id="sort">{sortOptions}</datalist>
+        </div>
+        <br />
+        <table className="table__userbugs">
+          <thead className="table__thead">
+            <tr>
+              <th scope="col" className="table__th">
+                {userName}'s Bugs
+              </th>
+              <th scope="col" className="table__th ticket__app">
+                App
+              </th>
+              <th scope="col" className="table__th ticket__status">
+                Status
+              </th>
+              <th scope="col" className="table__th ticket__timeago">
+                Time Open
+              </th>
+              <th scope="col" className="table__th ticket__priority">
+                Priority
+              </th>
+              <th scope="col" className="table__th ticket__severity">
+                Severity
+              </th>
+              <th scope="col" className="table__th ticket__nature">
+                Nature
+              </th>
+            </tr>
+          </thead>
+          <tbody>{tableContent}</tbody>
+        </table>
+      </section>
     );
   }
 

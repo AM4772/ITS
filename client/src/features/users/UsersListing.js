@@ -5,8 +5,10 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBug } from "@fortawesome/free-solid-svg-icons";
 import { useGetUsersQuery } from "./usersApiSlice";
+import useTitle from "../../hooks/useTitle";
 
 const UsersListing = () => {
+  useTitle("Bugxinator: Users & Bugs");
   const {
     data: users,
     isLoading,
@@ -36,13 +38,13 @@ const UsersListing = () => {
       ids?.length &&
       ids.map((id) => (
         <tr key={id} className="table__row">
-          <td className="table__cell">
+          <td className="table__cell user__username">
             {/* <Link to={`/dash/user/${id}`} singleUser={entities[id]}> */}
             {entities[id].name + " " + entities[id].surname}
             {/* </Link> */}
           </td>
-          <td className="table__cell">{entities[id].role}</td>
-          <td className="table__cell">
+          <td className="table__cell user__role">{entities[id].role}</td>
+          <td className="table__cell user__tickets">
             <button
               className="icon-button table__button"
               onClick={() => navigate(`/dash/user/${id}`)}
@@ -60,7 +62,7 @@ const UsersListing = () => {
             <th scope="col" className="table__th user__username">
               Users
             </th>
-            <th scope="col" className="table__th user__roles">
+            <th scope="col" className="table__th user__role">
               Role
             </th>
             <th scope="col" className="table__th user__tickets">

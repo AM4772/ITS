@@ -34,8 +34,8 @@
 
 /* || UTILITY CLASSES */
 .errmsg {
-  display: inline-block;
-  justify-content: center;
+  /* display: inline-block;
+  justify-content: center; */
   background-color: var(--ERRORBGCOLOR);
   color: var(--ERROR);
   padding: 0.25em;
@@ -54,8 +54,8 @@
 }
 
 .icon-button {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   font-size: 2.5rem;
   background-color: transparent;
   border: none;
@@ -232,7 +232,7 @@ tr {
   font-size: 1.5rem;
   font-weight: bolder;
   width: 100%;
-  height: 50%;
+  height: auto;
   display: grid;
   grid-template-columns: auto 200px auto;
   color: var(--TABLE-COLOR);
@@ -252,7 +252,7 @@ tr {
   font-size: 1.5rem;
   font-weight: bolder;
   width: 100%;
-  height: 50%;
+  height: auto;
   display: grid;
   grid-template-columns: 250px auto auto;
   color: var(--TABLE-COLOR);
@@ -266,6 +266,18 @@ tr {
 
 .table__userbugs a:hover {
   color: var(--LINK-USERHOVER);
+}
+
+.ticket--sort {
+  font-size: 1.25rem;
+  font-weight: bolder;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: center;
+  gap: 0.5em;
 }
 
 .table__applist {
@@ -323,9 +335,10 @@ tr {
 .table__th,
 .table__cell {
   background-color: var(--TABLE-BGCOLOR);
+  height: auto;
   text-align: center;
   border: 1px solid var(--TABLE-COLOR);
-  padding: 0.5em;
+  padding: 0.3em;
 }
 
 .table__cell:last-child {
@@ -353,6 +366,7 @@ tr {
 .ticket__updated,
 .ticket__username,
 .ticket__author,
+.ticket__timeago,
 .ticket__assignee,
 .ticket__priority,
 .ticket__severity {
@@ -487,7 +501,7 @@ tr {
   }
 
   .table__userlisting {
-    font-size: 0.85rem;
+    font-size: 1rem;
     grid-template-columns: auto auto auto;
   }
 
@@ -496,6 +510,10 @@ tr {
   }
 
   .table__userbugs {
+    font-size: 0.85rem;
+  }
+
+  .ticket--sort {
     font-size: 0.85rem;
   }
 
@@ -532,7 +550,7 @@ tr {
   }
 
   .table {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .table--tickets {
@@ -543,6 +561,7 @@ tr {
   .ticket__updated,
   .ticket__username,
   .ticket__author,
+  .ticket__timeago,
   .ticket__assignee,
   .ticket__priority,
   .ticket__severity,
@@ -550,12 +569,16 @@ tr {
     display: block;
   }
 
+  /* .table__userlisting {
+    font-size: 1.5rem;
+  } */
+
   .table__userbugs {
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto;
   }
 
   .table__appbuglist {
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
   }
 
   .table--users {

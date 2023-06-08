@@ -30,9 +30,11 @@ module.exports = (sequelize) => {
       },
       priority: {
         type: DataTypes.INTEGER,
+        defaultValue: 5,
       },
       severity: {
         type: DataTypes.INTEGER,
+        defaultValue: 7,
       },
       nature: {
         type: DataTypes.STRING,

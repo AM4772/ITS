@@ -2,15 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useGetTicketsQuery } from "./ticketsApiSlice";
+import useTitle from "../../hooks/useTitle";
 
 const AppsList = () => {
+  useTitle("Bugxinator: App List");
   const {
     data: tickets,
     isLoading,
     isSuccess,
     isError,
     error,
-  } = useGetTicketsQuery("usersList", {
+  } = useGetTicketsQuery("ticketsList", {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,

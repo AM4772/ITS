@@ -15,3 +15,11 @@ export function severityName(severityV) {
     }
   }
 }
+
+export function severityValue(severityK) {
+  for (const [k, v] of Object.entries(SEVERITIES)) {
+    if (severityK === k) {
+      return v;
+    }
+  }
+}

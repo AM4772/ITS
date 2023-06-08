@@ -8,7 +8,7 @@ import usePersist from "../../hooks/usePersist";
 import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
-  useTitle("User Login");
+  useTitle("Bugxinator: User Login");
   const userRef = useRef();
   const errRef = useRef();
   const [username, setUsername] = useState("");

@@ -19,7 +19,7 @@ import { RESOLUTIONS } from "../../config/resolutions";
 import { APPLICATIONS } from "../../config/applications";
 
 const EditTicketForm = ({ ticket, users }) => {
-  const { isManager, isAdmin } = useAuth();
+  const { isManager, isAdmin, isDeveloper } = useAuth();
   const [updateTicket, { isLoading, isSuccess, isError, error }] =
     useUpdateTicketMutation();
 
@@ -57,7 +57,8 @@ const EditTicketForm = ({ ticket, users }) => {
       setStatus("");
       setResolution("");
       setUserId("");
-      navigate("/dash/tickets");
+      // navigate("/dash/tickets");
+      navigate(-1);
     }
   }, [isSuccess, isDelSuccess, navigate]);
 
@@ -272,9 +273,9 @@ const EditTicketForm = ({ ticket, users }) => {
   );
 
   const content = (
-    <>
+    <section>
+      <p className={errClass}>{errContent}</p>
       <form className="form" onSubmit={(e) => e.preventDefault()}>
-        <p className={errClass}>{errContent}</p>
         <h3>Bug assigned to: {assignee}</h3>
         <div className="form__title-row">
           <h2>Edit Bug #{ticket.id}</h2>
@@ -366,7 +367,7 @@ const EditTicketForm = ({ ticket, users }) => {
           onChange={onVersionChanged}
         />
 
-        {(isManager || isAdmin) && (
+        {(isManager || isAdmin || isDeveloper) && (
           <>
             <div className="form__row">
               <div className="form__divider">
@@ -488,7 +489,7 @@ const EditTicketForm = ({ ticket, users }) => {
           </>
         )}
       </form>
-    </>
+    </section>
   );
 
   return content;

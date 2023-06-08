@@ -12,23 +12,23 @@ const EditTicket = () => {
 
   const { id } = useParams();
 
-  const { username, isManager, isAdmin } = useAuth();
+  const { username, isManager, isAdmin, isDeveloper } = useAuth();
 
   const { ticket } = useGetTicketsQuery("ticketsList", {
     selectFromResult: ({ data }) => ({
-      ticket: data?.entities[id],
+      ticket: data?.entities[parseInt(id)],
     }),
   });
 
   const { users } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => ({
-      users: data?.ids.map((id) => data?.entities[id]),
+      users: data?.ids.map((i) => data?.entities[i]),
     }),
   });
 
   if (!ticket || !users?.length) return <PulseLoader color={"#FFF"} />;
 
-  if (!isManager && !isAdmin) {
+  if (!isManager && !isAdmin && !isDeveloper) {
     if (ticket.author !== username) {
       return <p className="errmsg">No access</p>;
     }

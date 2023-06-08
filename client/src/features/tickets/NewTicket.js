@@ -5,7 +5,7 @@ import NewTicketForm from "./NewTicketForm";
 import useTitle from "../../hooks/useTitle";
 
 const NewTicket = () => {
-  useTitle("techBugs: New Bug");
+  useTitle("Bugxinator: New Bug");
 
   const { users } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data }) => ({

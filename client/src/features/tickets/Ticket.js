@@ -7,8 +7,8 @@ import { useGetTicketsQuery } from "./ticketsApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
 import useAuth from "../../hooks/useAuth";
 
-const Ticket = ({ ticketId, userID }) => {
-  const { isManager, isAdmin } = useAuth();
+const Ticket = ({ ticketId }) => {
+  const { isManager, isAdmin, isDeveloper } = useAuth();
   let assignee;
 
   const { ticket } = useGetTicketsQuery("ticketsList", {
@@ -61,7 +61,7 @@ const Ticket = ({ ticketId, userID }) => {
     });
 
     let timeAgo = "";
-    if (!ticket.status) {
+    if (ticket.status === false) {
       const timePeriod = formatDistanceToNow(parseISO(ticket.createdAt), {
         includeSeconds: true,
       });
@@ -76,7 +76,7 @@ const Ticket = ({ ticketId, userID }) => {
     }
 
     let canEdit;
-    if (!ticket.status || isAdmin || isManager) {
+    if (!ticket.status || isAdmin || isManager || isDeveloper) {
       canEdit = `/dash/tickets/${ticketId}`;
     } else {
       canEdit = "/dash/tickets";

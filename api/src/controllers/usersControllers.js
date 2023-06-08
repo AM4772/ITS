@@ -12,6 +12,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
     attributes: {
       exclude: ["password"],
     },
+    order: [["username", "ASC"]],
   });
 
   // If no users
@@ -75,7 +76,8 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PUT /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-  const { id, username, email, password, role, active } = req.body;
+  const { id, name, surname, username, email, password, role, active } =
+    req.body;
 
   // Confirm data
   if (!id || !username || !email || typeof active !== "boolean") {
@@ -91,16 +93,30 @@ const updateUser = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: "User not found" });
   }
 
-  // Check for duplicate
-  const duplicate = await Users.findOne({
+  // Check for duplicate username
+  const duplicateUsername = await Users.findOne({
     where: { username: { [Op.iLike]: `%${username}%` } },
   });
 
-  // Allow updates to the original user
-  if (duplicate && duplicate?.id !== id) {
+  // Allow updates to the original username
+  if (duplicateUsername && duplicateUsername?.id !== id) {
     return res.status(409).json({ message: "Duplicate username" });
   }
 
+  // Check for duplicate email
+  const duplicateEmail = await Users.findOne({
+    where: { email: { [Op.iLike]: `%${email}%` } },
+  });
+
+  // Allow updates to the original email
+  if (duplicateEmail && duplicateEmail?.id !== id) {
+    return res.status(409).json({ message: "Duplicate email" });
+  }
+
+  user.name = name;
+  user.surname = surname;
+  user.username = username;
+  user.email = email;
   user.role = role;
   user.active = active;
 

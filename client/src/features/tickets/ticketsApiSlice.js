@@ -16,7 +16,46 @@ export const ticketsApiSlice = apiSlice.injectEndpoints({
           return response.status === 200 && !result.isError;
         },
       }),
-      /* keepUnusedDataFor: 5,*/
+      transformResponse: (responseData) => {
+        return ticketsAdapter.setAll(initialState, responseData);
+      },
+      providesTags: (result, error, arg) => {
+        if (result?.ids) {
+          return [
+            { type: "Ticket", id: "LIST" },
+            ...result.ids.map((id) => ({ type: "Ticket", id })),
+          ];
+        } else return [{ type: "Ticket", id: "LIST" }];
+      },
+    }),
+    getSortedTickets: builder.query({
+      query: (sortArg) => ({
+        url: `/tickets`,
+        validateStatus: (response, result) => {
+          return response.status === 200 && !result.isError;
+        },
+        params: sortArg,
+      }),
+      transformResponse: (responseData) => {
+        return ticketsAdapter.setAll(initialState, responseData);
+      },
+      providesTags: (result, error, arg) => {
+        if (result?.ids) {
+          return [
+            { type: "Ticket", id: "LIST" },
+            ...result.ids.map((id) => ({ type: "Ticket", id })),
+          ];
+        } else return [{ type: "Ticket", id: "LIST" }];
+      },
+    }),
+    getFilteredTickets: builder.query({
+      query: (filterArg) => ({
+        url: `/tickets`,
+        validateStatus: (response, result) => {
+          return response.status === 200 && !result.isError;
+        },
+        params: filterArg,
+      }),
       transformResponse: (responseData) => {
         return ticketsAdapter.setAll(initialState, responseData);
       },
@@ -62,6 +101,8 @@ export const ticketsApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetTicketsQuery,
+  useGetSortedTicketsQuery,
+  useGetFilteredTicketsQuery,
   useAddNewTicketMutation,
   useUpdateTicketMutation,
   useDeleteTicketMutation,
@@ -94,34 +135,3 @@ export const selectTicketsByUser = createSelector(
   [selectAllTickets, (state, userId) => userId],
   (tickets, userId) => tickets.filter((ticket) => ticket.userId === userId)
 );
-
-// export const selectSortedTickets = createSelector(
-//   [selectAllTickets, (state, sortArg) => sortArg],
-//   (tickets, sortArg) => {
-//     if (sortArg === "Priority") {
-//       tickets.sort((a, b) => b.priority - a.priority);
-//     } else if (sortArg === "Severity") {
-//       tickets.sort((a, b) => b.severity - a.severity);
-//     } else if (sortArg === "Application") {
-//       tickets.sort((a, b) => {
-//         const nameA = a.application.toUpperCase();
-//         const nameB = b.application.toUpperCase();
-//         if (nameA < nameB) return -1;
-//         if (nameA > nameB) return 1;
-//         return 0;
-//       });
-//     } else if (sortArg === "Nature") {
-//       tickets.sort((a, b) => {
-//         const nameA = a.nature.toUpperCase();
-//         const nameB = b.nature.toUpperCase();
-//         if (nameA < nameB) return -1;
-//         if (nameA > nameB) return 1;
-//         return 0;
-//       });
-//     } else if (sortArg === "Assignee") {
-//       tickets.sort((a, b) => b.userId - a.userId);
-//     } else {
-//       tickets.sort((a, b) => b.status - a.status);
-//     }
-//   }
-// );

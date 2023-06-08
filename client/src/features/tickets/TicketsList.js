@@ -4,8 +4,10 @@ import { useGetTicketsQuery } from "./ticketsApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
 import Ticket from "./Ticket";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const TicketsList = () => {
+  useTitle("Bugxinator: Tickets List");
   const { username, isManager, isAdmin, isDeveloper } = useAuth();
 
   let content;
@@ -80,7 +82,7 @@ const TicketsList = () => {
     const tableContent =
       ids?.length &&
       filteredIds.map((ticketId) => (
-        <Ticket key={ticketId} ticketId={ticketId} userID={ticketId.id} />
+        <Ticket key={ticketId} ticketId={ticketId} />
       ));
 
     content = (

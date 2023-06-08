@@ -126,7 +126,7 @@ const EditUserForm = ({ user }) => {
   const errContent = (error?.data?.message || delerror?.data?.message) ?? "";
 
   const content = (
-    <>
+    <section>
       <p className={errClass}>{errContent}</p>
 
       <form className="form" onSubmit={(e) => e.preventDefault()}>
@@ -244,7 +244,7 @@ const EditUserForm = ({ user }) => {
           {options}
         </select>
       </form>
-    </>
+    </section>
   );
 
   return content;

@@ -1,7 +1,13 @@
 const { Sequelize, Op } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, NODE_ENV = "" } = process.env; // add DB_NAME for deploy
+const {
+  DB_USER,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_NAME,
+  NODE_ENV = "production",
+} = process.env; // add DB_NAME for deploy
 
 //------------------- ADDED FOR DEPLOYMENT -----------------------------------
 let db =

@@ -16,7 +16,7 @@ let db =
         database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
-        port: 5432,
+        // port: 5432,
         username: DB_USER,
         password: DB_PASSWORD,
         pool: {

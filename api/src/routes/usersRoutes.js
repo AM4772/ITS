@@ -3,7 +3,7 @@ const router = express.Router();
 const usersController = require("../controllers/usersControllers.js");
 const verifyJWT = require("../../middleware/verifyJWT.js");
 
-// router.use(verifyJWT);
+router.use(verifyJWT);
 
 router
   .route("/") // this will match the /users in the routes/index.js

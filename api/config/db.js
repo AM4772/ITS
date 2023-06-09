@@ -18,7 +18,7 @@ let db =
         host: DB_HOST,
         // port: 5432,
         username: DB_USER,
-        // password: DB_PASSWORD,
+        password: DB_PASSWORD,
         pool: {
           max: 5,
           min: 0,

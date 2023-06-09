@@ -22,7 +22,7 @@ Technologies used:
 
 Functionalities
 
-CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be viewed by app or by user or full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using ![JWT](/icons8-json-web-token-48.png).
+CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be viewed by app or by user or full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using **JWT** ![JWT](/icons8-json-web-token-24.png).
 
 This link will take you to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_
 
@@ -49,7 +49,7 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
 - Now you must install all the required dependencies for the front-end and back-end:
   - Front-end: place cursor inside `client`folder and run the following command:
   ```bash
-      npm install react react-dom react-router-dom react-scripts react-spinners @reduxjs/toolkit date-fns jwt-decode @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fvilers/disable-react-devtools
+      npm install react react-dom react-router-dom react-redux react-scripts react-spinners @reduxjs/toolkit date-fns jwt-decode @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fvilers/disable-react-devtools
   ```
   - Back-end: place cursor inside `api`folder and run the following command:
   ```bash

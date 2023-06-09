@@ -1,4 +1,5 @@
 const express = require("express");
+require("./db.js");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -8,39 +9,20 @@ const corsOptions = require("./corsOptions.js");
 const routes = require("../src/routes/index.js");
 const { logger } = require("../middleware/logger.js");
 const errHandler = require("../middleware/errorHandler.js");
-// require("./db.js");
+
 const server = express();
-// const local = "http://localhost:3000";
-// const vercel = "https://bookstore-rose.vercel.app";
 
 server.name = "API";
 
 server.use(logger);
-
 // cors restricts the origins that can access our REST API
 // you can check this in the browser by opening any webpage, going to the console and
 // do a fetch('http://3001')
 server.use(cors(corsOptions));
-
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
 server.use(morgan("dev"));
-// server.use((req, res, next) => {
-//   const allowedOrigins = [local, vercel]; // when deployed
-//   const origin = req.headers.origin;
-//   if (allowedOrigins.includes(origin)) {
-//     res.setHeader("Access-Control-Allow-Origin", origin);
-//   }
-//   // res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//   next();
-// });
 
 // Allows us to access static files like css images or files we would use in the server
 // for example in public folder or views folder

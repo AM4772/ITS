@@ -1,9 +1,6 @@
 const { Tickets } = require("../../config/db.js");
 const { Op } = require("sequelize");
 const asyncHandler = require("express-async-handler"); // helps avoid using try/catch handlers
-// const { statusValue } = require("../../config/status.js");
-// const { priorityValue } = require("../../config/priority.js");
-// const { severityValue } = require("../../config/severity.js");
 
 // @desc Get all tickets
 // @route GET /tickets

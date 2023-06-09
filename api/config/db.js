@@ -1,18 +1,20 @@
-const { Sequelize, Op } = require("sequelize");
+const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
+
 const {
   DB_USER,
   DB_PASSWORD,
   DB_HOST,
   DB_NAME,
   NODE_ENV = "production",
-} = process.env; // add DB_NAME for deploy
+} = process.env; // NODE_ENV must be "" during development
 
 //------------------- ADDED FOR DEPLOYMENT -----------------------------------
 let db =
   NODE_ENV === "production"
     ? new Sequelize({
+        // the order of the variables is vital
         dialect: "postgres",
         host: DB_HOST,
         port: 5432,
@@ -45,7 +47,7 @@ db.authenticate()
   .catch((err) => console.log("Error: " + err));
 
 // ------------------------------------------------------------------------------------------------
-// The following code converges all the models in one place thus avoiding having to bring one at a time
+// The following code helps converge all the models in one place thus avoiding having to bring one at a time
 const basename = path.basename(__filename);
 
 const modelDefiners = [];

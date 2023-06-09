@@ -1,5 +1,5 @@
 const { Users, Tickets } = require("../../config/db.js");
-const { Sequelize, Op } = require("sequelize");
+const { Op } = require("sequelize");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 

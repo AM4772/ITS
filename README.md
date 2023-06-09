@@ -4,7 +4,7 @@
 
 ## About the App
 
-Ever lost spleep trying to figure out a problem in your app after you updated the code? Ok, ok, I hear ya!, the answer is "daaah yes of course!!". So next I imagined working as a programmer for a software development company and I started thinking how would they go about tackling this issue (instances, people involved, etc). Based on these ideas, I decided to work on a bug tracking system that a software company could use to manage the bug life cycle.
+Ever lost sleep trying to figure out a problem in your app after you updated the code? Ok, ok, I hear ya!, the answer is "daaah yes of course!!". So next I imagined working as a programmer for a software development company and I started thinking how would they go about tackling this issue (instances, people involved, etc). Based on these ideas, I decided to work on a bug tracking system that a software company could use to manage the bug life cycle.
 
 Technologies used:
 

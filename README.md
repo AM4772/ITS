@@ -4,7 +4,7 @@
 
 ## About the App
 
-Ever lost sleep trying to figure out a problem in your app after you updated the code? Ok, ok, I hear ya!, the answer is "daaah yes of course!!". So next I imagined working as a programmer for a software development company and I started thinking how would they go about tackling this issue (instances, people involved, etc). Based on these ideas, I decided to work on a bug tracking system that a software company could use to manage the bug life cycle.
+Ever lost sleep trying to figure out a problem in your app after you updated the code? Ok, ok, I hear ya!, the answer is "daaah yes of course!!". So, I imagined myself working as a programmer for a software development company and I started thinking how would they go about tackling this issue (instances, processes, people involved, tools, etc). Based on these ideas, I decided to work on a bug tracking system to manage the bug life cycle in a software company. I did a little googling so I could implement the basics given that it would be an individual project and I wanted to keep the timeline below a month.
 
 Technologies used:
 
@@ -17,8 +17,8 @@ Technologies used:
 ![Express](https://img.shields.io/badge/-Express-696969?style=flat&logo=express)  
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-696969?style=flat&logo=postgreSQL)  
 ![Sequelize](https://img.shields.io/badge/-Sequelize-696969?style=flat&logo=Sequelize)  
- ![Git](https://img.shields.io/badge/-Git-696969?style=flat&logo=git)  
- ![GitHub](https://img.shields.io/badge/-GitHub-696969?style=flat&logo=github)
+![Git](https://img.shields.io/badge/-Git-696969?style=flat&logo=git)  
+![GitHub](https://img.shields.io/badge/-GitHub-696969?style=flat&logo=github)
 
 Functionalities
 
@@ -40,9 +40,9 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
 ## How to use it locally
 
 - You must install in your computer:
-  - A text editor like **`Visual Studio Code`**.
+  - A text editor, like **`Visual Studio Code`**.
   - **`Git`**, link to instructions: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Instructions Git")
-  - **`PostgreSQL`**, link to instructions: [PostgreSQL](https://www.postgresql.org/download/ "Instructions PostgreSQL")
+  - **`PostgreSQL`**, link to instructions: [PostgreSQL](https://www.postgresql.org/download/ "Instructions PostgreSQL"). I used version 14.
   - **`Node.js version 16.20.0`**, link: [Node.js](https://www.nodejs.org/en/download/ "Instructions Node.js")
 - In this page, above, look for a green button named "Code". Click on it and copy the HTTPS address to this repository.
 - In your text editor, place the cursor in the desired folder, paste the HTTPS address and hit Enter. This will download the repository to your computer. You will see the same folder structure and files as you see at the top of this page. Next, run the following commands inside the folder `npm install` and then `npm init`.

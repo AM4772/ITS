@@ -35,7 +35,7 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
 <a href="mailto:moro_bramanti@hotmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-moro_bramanti@hotmail.com-blue?style=flat-square&logo=outlook"></a>
 </p>
 
-⭐️ Link to my ![GitHub](https://img.shields.io/badge/-GitHub-696969?style=flat&logo=github) profile: [AM4772](https://github.com/AM4772)
+⭐️ Link to my <sub>![GitHub](https://img.shields.io/badge/-GitHub-696969?style=flat&logo=github)</sub> profile: [AM4772](https://github.com/AM4772)
 
 ## How to use it locally
 
@@ -63,7 +63,7 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
   DB_NAME = itracker;
   PORT = 3001;
   ```
-- In ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-696969?style=flat&logo=postgreSQL), you must create a new database named **itracker**.
+- In <sub>![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-696969?style=flat&logo=postgreSQL)</sub>, you must create a new database named **itracker**.
 - The content inside the `client` folder was created using **`Create React App`** with npx.
 - To run the app in your localhost:
   - In the `api/config` folder, modify the _NODE_ENV_ variable from "production" to "", in the `db.js` file.

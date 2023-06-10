@@ -22,9 +22,9 @@ Technologies used:
 
 Functionalities
 
-CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be viewed by app or by user or full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using **JWT** <sub>![JWT](/icons8-json-web-token-24.png)</sub>.
+CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be sorted by the beforementioned parameters. Bugs can be viewed by app or by user or as a full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using **JWT** <sub>![JWT](/icons8-json-web-token-24.png)</sub>.
 
-I deployed the app through the free version of **[Render](https://bugxinator.onrender.com "Render")** and this is the link to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_.
+I deployed the app using the free version of **[Render](https://bugxinator.onrender.com "Render")** and this is the link to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_.
 
 PS: Future potential enhancements: filtering, messaging system, reporting.
 

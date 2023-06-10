@@ -22,9 +22,9 @@ Technologies used:
 
 Functionalities
 
-CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be viewed by app or by user or full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using **JWT** ![JWT](/icons8-json-web-token-24.png).
+CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be viewed by app or by user or full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using **JWT** <sub>![JWT](/icons8-json-web-token-24.png)</sub>.
 
-This link will take you to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_
+I deployed the app through **[Render](https://bugxinator.onrender.com "Render")** and this is the link to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_
 
 PS: Future potential enhancements: filtering, messaging system, reporting.
 
@@ -65,6 +65,10 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
   ```
 - In ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-696969?style=flat&logo=postgreSQL), you must create a new database named **itracker**.
 - The content inside the `client` folder was created using **`Create React App`** with npx.
-- To run the app in your localhost, first run the command `npm start` from the `api` folder and then do the same from the `client` folder. This should open up a browser where you will see the app running.
+- To run the app in your localhost:
+  - In the `api/config` folder, modify the _NODE_ENV_ variable from "production" to "", in the `db.js` file.
+  - In the `client/sro/app` folder, modify _devTools_ to false in the `store.js` file.
+  - In the `client/sro/app/api` folder, modify the _baseUrl_ to "http://localhost:3001", or port number you use in the `apiSlice.js` file.
+  - Lastly, in the terminal run the command `npm start` from within the `api` folder and then do the same from the `client` folder. This should open up a browser where you will see the app running.
 
 ### 🤝🏻 &nbsp;Contact me if you have any problems with the instructions

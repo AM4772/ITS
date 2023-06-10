@@ -71,5 +71,7 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
   - In the `client/sro/app` folder, modify _devTools_ to _false_ in the `store.js` file.
   - In the `client/src/app/api` folder, in the `apiSlice.js` file modify the _baseUrl_ to "http://localhost:3001", or port number you use.
   - Lastly, in the terminal run the command `npm start` from within the `api` folder and then do the same from the `client` folder. This should open up a browser where you will see the app running.
+  - You must also create an Admin user with an app like ![Postman](https://img.shields.io/badge/-Postman-696969?style=flat&logo=CSS3&logoColor=FF6C37), see screenshot:
+    ![firstuser](/firstuser.png)
 
 ### 🤝🏻 &nbsp;Contact me if you have any problems with the instructions

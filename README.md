@@ -24,7 +24,7 @@ Functionalities
 
 CRUD operations for bugs and users. Besides naming and providing details, each bug can be assigned a priority, a severity, a nature, and a resolution status. Bugs can be viewed by app or by user or full list. The app handles authorization and authentication by levels (EndUser, Developer, Manager and Admin) using **JWT** <sub>![JWT](/icons8-json-web-token-24.png)</sub>.
 
-I deployed the app through **[Render](https://bugxinator.onrender.com "Render")** and this is the link to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_
+I deployed the app through the free version of **[Render](https://bugxinator.onrender.com "Render")** and this is the link to the web page: **[Bugxinator](https://bugxinator.onrender.com/ "Bugxinator")**, _let me know your comments and suggestions!_.
 
 PS: Future potential enhancements: filtering, messaging system, reporting.
 
@@ -44,9 +44,10 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
   - **`Git`**, link to instructions: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Instructions Git")
   - **`PostgreSQL`**, link to instructions: [PostgreSQL](https://www.postgresql.org/download/ "Instructions PostgreSQL"). I used version 14.
   - **`Node.js version 16.20.0`**, link: [Node.js](https://www.nodejs.org/en/download/ "Instructions Node.js")
+  - In the front-end, I used **`RTK Query`** instead of **`Axios`** or **`Fetch`** to handle async logic.
 - In this page, above, look for a green button named "Code". Click on it and copy the HTTPS address to this repository.
 - In your text editor, place the cursor in the desired folder, paste the HTTPS address and hit Enter. This will download the repository to your computer. You will see the same folder structure and files as you see at the top of this page. Next, run the following commands inside the folder `npm install` and then `npm init`.
-- Now you must install all the required dependencies for the front-end and back-end:
+- Now, you must install all the required dependencies for the front-end and back-end:
   - Front-end: place cursor inside `client`folder and run the following command:
   ```bash
       npm install react react-dom react-router-dom react-redux react-scripts react-spinners @reduxjs/toolkit date-fns jwt-decode @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fvilers/disable-react-devtools
@@ -63,12 +64,12 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
   DB_NAME = itracker;
   PORT = 3001;
   ```
-- In <sub>![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-696969?style=flat&logo=postgreSQL)</sub>, you must create a new database named **itracker**.
+- In <sub>![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-696969?style=flat&logo=postgreSQL)</sub>, you must create a new database named **itracker**. You can use pgAdmin or SQL in your CLI.
 - The content inside the `client` folder was created using **`Create React App`** with npx.
 - To run the app in your localhost:
   - In the `api/config` folder, modify the _NODE_ENV_ variable from "production" to "", in the `db.js` file.
-  - In the `client/sro/app` folder, modify _devTools_ to false in the `store.js` file.
-  - In the `client/src/app/api` folder, modify the _baseUrl_ to "http://localhost:3001", or port number you use in the `apiSlice.js` file.
+  - In the `client/sro/app` folder, modify _devTools_ to _false_ in the `store.js` file.
+  - In the `client/src/app/api` folder, in the `apiSlice.js` file modify the _baseUrl_ to "http://localhost:3001", or port number you use.
   - Lastly, in the terminal run the command `npm start` from within the `api` folder and then do the same from the `client` folder. This should open up a browser where you will see the app running.
 
 ### 🤝🏻 &nbsp;Contact me if you have any problems with the instructions

@@ -71,9 +71,10 @@ PS: Future potential enhancements: filtering, messaging system, reporting.
   - In the `api/config` folder, modify the _NODE_ENV_ variable from "production" to "", in the `db.js` file.
   - In the `client/sro/app` folder, modify _devTools_ to _false_ in the `store.js` file.
   - In the `client/src/app/api` folder, in the `apiSlice.js` file modify the _baseUrl_ to "http://localhost:3001", or port number you use.
-  - Lastly, in the terminal run the command `npm start` from within the `api` folder and then do the same from the `client` folder. This should open up a browser where you will see the app running.
-  - Before you can log in, first you must comment out the **router** command verifying the JWT token (line 6 of `usersRoutes.js` file inside the `api/src/routes` folder), then you must create an _Admin_ user with an app like <sub>![Postman](https://img.shields.io/badge/-Postman-696969?style=flat&logo=Postman&logoColor=FF6C37)</sub> (see screenshot below), and finally uncomment line 6 in the `usersRoutes.js` file.
-
-    ![firstuser](/firstuser.png)
+  - In the terminal run the command `npm start` from within the `api` folder.
+    - This will connect to the database and it will automatically create 12 users (there is no register feature since it in-house app) and 25 tickets.
+    - The password for any user is _`125ghj`_, which an **Admin** user can change. There are 4 types of users, or roles: `Admin, Manager, Developer, and EndUser`.
+  - Then do the same from the `client` folder. This should open up a browser where you will see the landing page. At the bottom left corner you´ll find the log in link.
+    - Here are usernames for each role that you can use to log in: `tburton` (Admin), `ewasp` (Manager), `mreyes` (Developer), and `rdeniro` (EndUser).
 
 ### 🤝🏻 &nbsp;Contact me if you have any problems with the instructions
